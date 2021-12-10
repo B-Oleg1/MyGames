@@ -84,15 +84,15 @@ public class MainScript : MonoBehaviour
 
     public static void GiveOutPrize(int commandId)
     {
-        if (ModelsScript.Players[commandId].ProgressBattlePass >= 2)
+        if (ModelsScript.Players[commandId].ProgressBattlePass >= 2 && ModelsScript.Players[commandId].ProgressBattlePass < 4)
         {
             ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
         }
-        else if(ModelsScript.Players[commandId].ProgressBattlePass >= 4)
+        else if(ModelsScript.Players[commandId].ProgressBattlePass >= 4 && ModelsScript.Players[commandId].ProgressBattlePass < 6)
         {
             ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
         }
-        else if (ModelsScript.Players[commandId].ProgressBattlePass >= 6)
+        else if (ModelsScript.Players[commandId].ProgressBattlePass >= 6 && ModelsScript.Players[commandId].ProgressBattlePass < 7)
         {
             ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
         }
@@ -104,14 +104,14 @@ public class MainScript : MonoBehaviour
         GenerateNewBattlePass(commandId);
     }
 
-    private static List<ShopItem> GenerateNewBattlePass(int commandId)
+    private static void GenerateNewBattlePass(int commandId)
     {
-        return ModelsScript.Players[commandId].BattlePassItems = new List<ShopItem>
+        ModelsScript.Players[commandId].BattlePassItems = new List<ShopItem>
         {
             (ShopItem)Random.Range(0,1),
-            (ShopItem)Random.Range(2,4),
-            (ShopItem)Random.Range(5,9),
-            (ShopItem)Random.Range(10,11)
+            (ShopItem)Random.Range(2,3),
+            (ShopItem)Random.Range(4,7),
+            (ShopItem)Random.Range(8,10)
         };
     }
 }

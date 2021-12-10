@@ -20,11 +20,11 @@ public enum ShopItem
     shield,
     armor,
     x2,
-    x3,
-    x4,
+    x3,    
     takeaxe,
     giveaxe,
     doublemove,
     hint,
+    x4,
     sword
 }
