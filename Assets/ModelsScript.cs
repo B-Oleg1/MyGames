@@ -10,7 +10,7 @@ public static class ModelsScript
 
     public static int currentQuestion = 0;
     public static int currentPointsForQuestions = 0;
-    public static Transform[] allSceneWithQuestion;
+    public static Transform[] allSceneWithQuestion = new Transform[48];
     public static Button[] allBtns;
 
     public static int needUpdateCommandId = -1;

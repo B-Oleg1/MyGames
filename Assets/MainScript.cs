@@ -24,7 +24,17 @@ public class MainScript : MonoBehaviour
 
     private void Awake()
     {
-        ModelsScript.allSceneWithQuestion = _objectWithQuestions.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < _objectWithQuestions.childCount; i++)
+        {
+            if (_objectWithQuestions.GetChild(i).CompareTag("QuestionObject"))
+            {
+                ModelsScript.allSceneWithQuestion[i] = _objectWithQuestions.GetChild(i).GetComponent<Transform>();
+            }
+        }
+
+        //ModelsScript.allSceneWithQuestion = _objectWithQuestions.GetComponentsInChildren<Transform>();
+
+        print(ModelsScript.allSceneWithQuestion.Length);
         ModelsScript.allBtns = _objectObjectsWithButtons.GetComponentsInChildren<Button>();
 
         _questionObject.gameObject.SetActive(false);
@@ -87,13 +97,12 @@ public class MainScript : MonoBehaviour
 
         _questionObject.gameObject.SetActive(true);
         _objectWithQuestions.gameObject.SetActive(true);
-        ModelsScript.allSceneWithQuestion[i + 1].gameObject.SetActive(true);
+        ModelsScript.allSceneWithQuestion[i].gameObject.SetActive(true);
 
         btns.enabled = false;
         var tmp = btns.GetComponent<Image>().color;
         tmp.a = 0;
         btns.GetComponent<Image>().color = tmp;
-
         btns.GetComponentInChildren<Text>().text = string.Empty;
     }
 

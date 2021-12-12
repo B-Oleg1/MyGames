@@ -11,41 +11,71 @@ public class QuestionTimerScript : MonoBehaviour
     [SerializeField]
     private Slider _slider;
 
+    private bool _questionCounted = false;
+    private IEnumerator ienum;
+    private bool coroutineIsStarted = false;
+
+    private float time = 15f;
+
+    private void Start()
+    {
+        ienum = Timer();
+    }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && !coroutineIsStarted)
         {
-            StopCoroutine(Timer());
+            coroutineIsStarted = true;
+            time = 15f;
+            _slider.value = 1;
             StartTimer();
         }
 
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.E) && coroutineIsStarted)
         {
-            End(ModelsScript.currentPointsForQuestions, 0);
+            StopCoroutine(ienum);
+            coroutineIsStarted = false;
         }
-        else if (Input.GetKey(KeyCode.Alpha2))
+
+        if (Input.GetKey(KeyCode.E))
         {
-            End(ModelsScript.currentPointsForQuestions * -1, 0);
+            StopCoroutine(ienum);
         }
-        else if (Input.GetKey(KeyCode.Alpha3))
+
+        if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
         {
-            End(ModelsScript.currentPointsForQuestions, 1);
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 0));
         }
-        else if (Input.GetKey(KeyCode.Alpha4))
+        else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
         {
-            End(ModelsScript.currentPointsForQuestions * -1, 1);
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
         }
-        else if (Input.GetKey(KeyCode.Alpha5))
+        else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
         {
-            End(ModelsScript.currentPointsForQuestions, 2);
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 1));
         }
-        else if (Input.GetKey(KeyCode.Alpha6))
+        else if (Input.GetKey(KeyCode.Alpha4) && !_questionCounted)
         {
-            End(ModelsScript.currentPointsForQuestions * -1, 2);
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
+        }
+        else if (Input.GetKey(KeyCode.Alpha5) && !_questionCounted)
+        {
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 2));
+        }
+        else if (Input.GetKey(KeyCode.Alpha6) && !_questionCounted)
+        {
+            _questionCounted = true;
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 2));
         }
     }
 
-    private void End(int points, int commandId)
+    private IEnumerator End(int points, int commandId)
     {
         ModelsScript.Players[commandId].Score += points;
 
@@ -78,22 +108,33 @@ public class QuestionTimerScript : MonoBehaviour
 
         ModelsScript.needUpdateCommandId = commandId;
 
-        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion + 1].gameObject.SetActive(false);
+        for (int i = 1; i < ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount; i++)
+        {
+            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(i).gameObject.SetActive(false);
+        }
+        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(0).gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3.75f);
+
+        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
         _objectWithQuestions.gameObject.SetActive(false);
+
+        _questionCounted = false;
+
         gameObject.SetActive(false);
     }
 
     public void StartTimer()
     {
-        _slider.value = 1;
-        StartCoroutine(Timer());
+        StartCoroutine(ienum);
     }
 
     private IEnumerator Timer()
     {
-        while (_slider.value > 0)
+        while (time > 0)
         {
-            _slider.value -= Time.deltaTime / 90;
+            time -= Time.deltaTime;
+            _slider.value = time * 0.06666666666666666666666666666667f;
             yield return null;
         }
     }
