@@ -1,5 +1,6 @@
 using Assets;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class MainScript : MonoBehaviour
     private Transform _objectWithQuestions;
     [SerializeField]
     private Transform _objectObjectsWithButtons;
+
+    [SerializeField]
+    private StatisticComamnd[] _allCommandStatistics;
 
     private void Awake()
     {
@@ -91,19 +95,19 @@ public class MainScript : MonoBehaviour
     {
         if (ModelsScript.Players[commandId].ProgressBattlePass >= 2 && ModelsScript.Players[commandId].ProgressBattlePass < 4)
         {
-            ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
+            ModelsScript.Players[commandId].Items.Add(ModelsScript.Players[commandId].BattlePassItems[0]);
         }
         else if(ModelsScript.Players[commandId].ProgressBattlePass >= 4 && ModelsScript.Players[commandId].ProgressBattlePass < 6)
         {
-            ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
+            ModelsScript.Players[commandId].Items.Add(ModelsScript.Players[commandId].BattlePassItems[1]);
         }
         else if (ModelsScript.Players[commandId].ProgressBattlePass >= 6 && ModelsScript.Players[commandId].ProgressBattlePass < 7)
         {
-            ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
+            ModelsScript.Players[commandId].Items.Add(ModelsScript.Players[commandId].BattlePassItems[2]);
         }
         else if (ModelsScript.Players[commandId].ProgressBattlePass >= 7)
         {
-            ModelsScript.Players[commandId].Items.Add(ShopItem.bomb);
+            ModelsScript.Players[commandId].Items.Add(ModelsScript.Players[commandId].BattlePassItems[3]);
         }
 
         GenerateNewBattlePass(commandId);
@@ -119,4 +123,16 @@ public class MainScript : MonoBehaviour
             (ShopItem)Random.Range(9,11)
         };
     }
+
+    private void UpdateStatistic(int commandId)
+    {
+        // TODO: сделать обновление очков, очков магазина, предметов, батл пасса
+    }
+}
+
+public class StatisticComamnd
+{
+    public TextMeshProUGUI score;
+    public TextMeshProUGUI scoreShop;
+    public Transform allSkills
 }
