@@ -12,6 +12,8 @@ public static class ModelsScript
     public static int currentPointsForQuestions = 0;
     public static Transform[] allSceneWithQuestion;
     public static Button[] allBtns;
+
+    public static int needUpdateCommandId = -1;
 }
 
 public enum ShopItem

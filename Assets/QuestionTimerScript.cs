@@ -76,6 +76,8 @@ public class QuestionTimerScript : MonoBehaviour
             ModelsScript.Players[commandId].ProgressBattlePass = 0;
         }
 
+        ModelsScript.needUpdateCommandId = commandId;
+
         ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion + 1].gameObject.SetActive(false);
         _objectWithQuestions.gameObject.SetActive(false);
         gameObject.SetActive(false);
