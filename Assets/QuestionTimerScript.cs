@@ -73,6 +73,7 @@ public class QuestionTimerScript : MonoBehaviour
         else if (points > 0 && ModelsScript.Players[commandId].ProgressBattlePass == 7)
         {
             MainScript.GiveOutPrize(commandId);
+            ModelsScript.Players[commandId].ProgressBattlePass = 0;
         }
 
         ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion + 1].gameObject.SetActive(false);

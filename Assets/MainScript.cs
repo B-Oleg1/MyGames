@@ -57,14 +57,19 @@ public class MainScript : MonoBehaviour
         GenerateNewBattlePass(0);
         GenerateNewBattlePass(1);
         GenerateNewBattlePass(2);
-
-        ModelsScript.Players[0].BattlePassItems.ForEach(item => Debug.Log(item));
-        ModelsScript.Players[1].BattlePassItems.ForEach(item => Debug.Log(item));
-        ModelsScript.Players[2].BattlePassItems.ForEach(item => Debug.Log(item));
     }
 
     public void OnClickBsn(int i)
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            print(1);
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            print(5);
+        }
+
         var btns = ModelsScript.allBtns[i];
 
         ModelsScript.currentQuestion = i;
@@ -108,10 +113,10 @@ public class MainScript : MonoBehaviour
     {
         ModelsScript.Players[commandId].BattlePassItems = new List<ShopItem>
         {
-            (ShopItem)Random.Range(0,1),
-            (ShopItem)Random.Range(2,3),
-            (ShopItem)Random.Range(4,7),
-            (ShopItem)Random.Range(8,10)
+            (ShopItem)Random.Range(0,2),
+            (ShopItem)Random.Range(3,4),
+            (ShopItem)Random.Range(5,8),
+            (ShopItem)Random.Range(9,11)
         };
     }
 }

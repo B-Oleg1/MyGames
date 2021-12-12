@@ -16,6 +16,7 @@ public static class ModelsScript
 
 public enum ShopItem
 {
+    freeze,
     bomb,
     shield,
     armor,
