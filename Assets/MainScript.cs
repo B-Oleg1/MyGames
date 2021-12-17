@@ -32,9 +32,6 @@ public class MainScript : MonoBehaviour
             }
         }
 
-        //ModelsScript.allSceneWithQuestion = _objectWithQuestions.GetComponentsInChildren<Transform>();
-
-        print(ModelsScript.allSceneWithQuestion.Length);
         ModelsScript.allBtns = _objectObjectsWithButtons.GetComponentsInChildren<Button>();
 
         _questionObject.gameObject.SetActive(false);
@@ -90,20 +87,33 @@ public class MainScript : MonoBehaviour
 
     public void OnClickBsn(int i)
     {
-        var btns = ModelsScript.allBtns[i];
+        var btn = ModelsScript.allBtns[i];
+        if (ModelsScript.setFreeze)
+        {
+            ModelsScript.setFreeze = false;
+            btn.interactable = false;
+            ModelsScript.lvlsWithFreeze.Add(i, 3);
+        }
+        else if (ModelsScript.setBomb)
+        {
+            ModelsScript.setBomb = false;
+            ModelsScript.lvlsWithBomb.Add(i);
+        }
+        else
+        {
+            ModelsScript.currentQuestion = i;
+            ModelsScript.currentPointsForQuestions = int.Parse(btn.GetComponentInChildren<Text>().text);
 
-        ModelsScript.currentQuestion = i;
-        ModelsScript.currentPointsForQuestions = int.Parse(btns.GetComponentInChildren<Text>().text);
+            _questionObject.gameObject.SetActive(true);
+            _objectWithQuestions.gameObject.SetActive(true);
+            ModelsScript.allSceneWithQuestion[i].gameObject.SetActive(true);
 
-        _questionObject.gameObject.SetActive(true);
-        _objectWithQuestions.gameObject.SetActive(true);
-        ModelsScript.allSceneWithQuestion[i].gameObject.SetActive(true);
-
-        btns.enabled = false;
-        var tmp = btns.GetComponent<Image>().color;
-        tmp.a = 0;
-        btns.GetComponent<Image>().color = tmp;
-        btns.GetComponentInChildren<Text>().text = string.Empty;
+            btn.enabled = false;
+            var tmp = btn.GetComponent<Image>().color;
+            tmp.a = 0;
+            btn.GetComponent<Image>().color = tmp;
+            btn.GetComponentInChildren<Text>().text = string.Empty;
+        }
     }
 
     public static void GiveOutPrize(int commandId)

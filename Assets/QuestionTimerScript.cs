@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,18 +30,22 @@ public class QuestionTimerScript : MonoBehaviour
             coroutineIsStarted = true;
             time = 15f;
             _slider.value = 1;
-            StartTimer();
+            StartCoroutine(ienum);
         }
-
         if (Input.GetKey(KeyCode.E) && coroutineIsStarted)
         {
             StopCoroutine(ienum);
             coroutineIsStarted = false;
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q))
         {
-            StopCoroutine(ienum);
+            for (int i = 1; i < ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount; i++)
+            {
+                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(i).gameObject.SetActive(false);
+            }
+
+            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(0).gameObject.SetActive(true);
         }
 
         if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
@@ -51,7 +56,7 @@ public class QuestionTimerScript : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
         {
             _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
         }
         else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
         {
@@ -77,13 +82,59 @@ public class QuestionTimerScript : MonoBehaviour
 
     private IEnumerator End(int points, int commandId)
     {
-        ModelsScript.Players[commandId].Score += points;
+        ScoringPoints(points, commandId);
+
+        ModelsScript.needUpdateCommandId = commandId;
+
+        yield return new WaitForSeconds(1.5f);
+
+        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
+        _objectWithQuestions.gameObject.SetActive(false);
+
+        for (int i = 0; i < ModelsScript.lvlsWithFreeze.Count; i++)
+        {
+            ModelsScript.lvlsWithFreeze[i]--;
+            if (ModelsScript.lvlsWithFreeze[i] == 0)
+            {
+                ModelsScript.allBtns[i].interactable = true;
+                ModelsScript.lvlsWithFreeze.Remove(i);
+            }
+        }
+
+        _questionCounted = false;
+
+        gameObject.SetActive(false);
+    }
+
+    private void ScoringPoints(int points, int commandId)
+    {
+        if (ModelsScript.currentBonus.Any(item => item == ShopItem.x2))
+        {
+            ModelsScript.Players[commandId].Score += points * 2;
+        }
+        else if (ModelsScript.currentBonus.Any(item => item == ShopItem.x3))
+        {
+            ModelsScript.Players[commandId].Score += points * 3;
+        }
+        else if (ModelsScript.currentBonus.Any(item => item == ShopItem.x4))
+        {
+            ModelsScript.Players[commandId].Score += points * 4;
+        }
+        else
+        {
+            ModelsScript.Players[commandId].Score += points;
+        }
+
+        if (ModelsScript.lvlsWithBomb.Any(item => item == ModelsScript.currentQuestion) && !ModelsScript.currentBonus.Any(item => item == ShopItem.shield))
+        {
+            ModelsScript.Players[commandId].Score -= 100;
+        }
 
         if (points < 0)
         {
             ModelsScript.Players[commandId].ProgressBattlePass = 0;
         }
-        else if (points > 0 && ModelsScript.Players[commandId].ProgressBattlePass < 7)
+        else if (points > 0)
         {
             ModelsScript.Players[commandId].ProgressBattlePass++;
 
@@ -98,35 +149,14 @@ public class QuestionTimerScript : MonoBehaviour
             else if (ModelsScript.Players[commandId].ProgressBattlePass >= 5)
             {
                 ModelsScript.Players[commandId].ShopScore += 1.5f;
+
+                if (ModelsScript.Players[commandId].ProgressBattlePass == 7)
+                {
+                    MainScript.GiveOutPrize(commandId);
+                    ModelsScript.Players[commandId].ProgressBattlePass = 0;
+                }
             }
         }
-        else if (points > 0 && ModelsScript.Players[commandId].ProgressBattlePass == 7)
-        {
-            MainScript.GiveOutPrize(commandId);
-            ModelsScript.Players[commandId].ProgressBattlePass = 0;
-        }
-
-        ModelsScript.needUpdateCommandId = commandId;
-
-        for (int i = 1; i < ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount; i++)
-        {
-            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(i).gameObject.SetActive(false);
-        }
-        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(0).gameObject.SetActive(true);
-
-        yield return new WaitForSeconds(3.75f);
-
-        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
-        _objectWithQuestions.gameObject.SetActive(false);
-
-        _questionCounted = false;
-
-        gameObject.SetActive(false);
-    }
-
-    public void StartTimer()
-    {
-        StartCoroutine(ienum);
     }
 
     private IEnumerator Timer()

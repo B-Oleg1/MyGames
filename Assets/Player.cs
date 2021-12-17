@@ -14,5 +14,6 @@ namespace Assets
         public int ProgressBattlePass { get; set; }
         public List<ShopItem> Items { get; set; }
         public List<ShopItem> BattlePassItems { get; set; }
+        public bool WearingArmor { get; set; }
     }
 }
