@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ItemScript : MonoBehaviour
+public class ItemScript : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private int _commandId;
@@ -11,46 +12,33 @@ public class ItemScript : MonoBehaviour
     [SerializeField]
     private int _itemId;
 
-    private Camera _camera;
-    private bool _itemUse = false;
-
-    private void Start()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        _camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            RaycastHit2D hit = new RaycastHit2D();
-            hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null && hit.collider.CompareTag("Item") && !_itemUse)
-            {
-                _itemUse = true;
-                UseItem();
-            }
+            UseItem(_itemId);
+            eventData.Reset();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1) && !_itemUse)
+        else if (eventData.button == PointerEventData.InputButton.Middle)
         {
-            _itemUse = true;
-            BuyItem();
+            BuyItem(_itemId);
+            eventData.Reset();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse2) && !_itemUse)
+        else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            _itemUse = true;
-            SellItem();
+            SellItem(_itemId);
+            eventData.Reset();
         }
     }
 
-    private void UseItem()
+    private void UseItem(int _itemId)
     {
         if (ModelsScript.Players[_commandId].Items.Any(item => item == (ShopItem)_itemId))
         {
             switch (_itemId)
             {
                 case 0:
-                    ModelsScript.setFreeze = true;
+                    ModelsScript.setFreeze = true;                   
                     break;
                 case 1:
                     ModelsScript.setBomb = true;
@@ -59,7 +47,7 @@ public class ItemScript : MonoBehaviour
                     ModelsScript.currentBonus.Add(ShopItem.shield);
                     break;
                 case 3:
-                    ModelsScript.Players[_commandId].WearingArmor = true;
+                    ModelsScript.Players[_commandId].WearingArmor = 3;
                     break;
                 case 4:
                     ModelsScript.currentBonus.Add(ShopItem.x2);
@@ -83,6 +71,8 @@ public class ItemScript : MonoBehaviour
                     ModelsScript.currentBonus.Add(ShopItem.x4);
                     break;
                 case 11:
+                    ModelsScript.attack[0] = 1;
+                    ModelsScript.attack[1] = _commandId;
                     // TODO: Sword
                     break;
                 default:
@@ -93,11 +83,9 @@ public class ItemScript : MonoBehaviour
 
             ModelsScript.needUpdateCommandId = _commandId;
         }
-
-        _itemUse = false;
     }
 
-    private void BuyItem()
+    private void BuyItem(int _itemId)
     {
         if (ModelsScript.Players[_commandId].ShopScore >= ModelsScript.priceItems[_itemId, 0])
         {
@@ -106,11 +94,9 @@ public class ItemScript : MonoBehaviour
 
             ModelsScript.needUpdateCommandId = _commandId;
         }
-
-        _itemUse = false;
     }
 
-    private void SellItem()
+    private void SellItem(int _itemId)
     {
         if (ModelsScript.Players[_commandId].Items.Any(item => item == (ShopItem)_itemId))
         {
@@ -119,7 +105,5 @@ public class ItemScript : MonoBehaviour
 
             ModelsScript.needUpdateCommandId = _commandId;
         }
-
-        _itemUse = false;
     }
 }

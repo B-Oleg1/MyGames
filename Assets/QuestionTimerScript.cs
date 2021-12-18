@@ -101,6 +101,14 @@ public class QuestionTimerScript : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < ModelsScript.Players.Count; i++)
+        {
+            if (ModelsScript.Players[i].WearingArmor > 0)
+            {
+                ModelsScript.Players[i].WearingArmor--;
+            }
+        }
+
         _questionCounted = false;
 
         gameObject.SetActive(false);
@@ -140,7 +148,7 @@ public class QuestionTimerScript : MonoBehaviour
 
             if (ModelsScript.Players[commandId].ProgressBattlePass < 3)
             {
-                ModelsScript.Players[commandId].ShopScore += 0.5f;
+                ModelsScript.Players[commandId].ShopScore += 0.5;
             }
             else if (ModelsScript.Players[commandId].ProgressBattlePass >= 3 && ModelsScript.Players[commandId].ProgressBattlePass < 5)
             {
@@ -148,7 +156,7 @@ public class QuestionTimerScript : MonoBehaviour
             }
             else if (ModelsScript.Players[commandId].ProgressBattlePass >= 5)
             {
-                ModelsScript.Players[commandId].ShopScore += 1.5f;
+                ModelsScript.Players[commandId].ShopScore += 1.5;
 
                 if (ModelsScript.Players[commandId].ProgressBattlePass == 7)
                 {

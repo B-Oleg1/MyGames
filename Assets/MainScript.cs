@@ -17,7 +17,6 @@ public class MainScript : MonoBehaviour
 
     [SerializeField]
     private Sprite[] _allItemsSprites;
-    //private Dictionary<ShopItem, Sprite> _allItemsSprites;
 
     [SerializeField]
     private StatisticCommand[] _allCommandStatistics;
@@ -140,6 +139,11 @@ public class MainScript : MonoBehaviour
             ModelsScript.needUpdateCommandId = commandId;
             GenerateNewBattlePass(commandId);
         }
+    }
+
+    public void SetEnemyOnSword(int enemyId)
+    {
+        ModelsScript.attack[2] = enemyId;
     }
 
     private static void GenerateNewBattlePass(int commandId)

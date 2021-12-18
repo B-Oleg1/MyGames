@@ -10,10 +10,10 @@ namespace Assets
     {
         public string Name { get; set; }
         public int Score { get; set; }
-        public float ShopScore { get; set; }
+        public double ShopScore { get; set; }
         public int ProgressBattlePass { get; set; }
         public List<ShopItem> Items { get; set; }
         public List<ShopItem> BattlePassItems { get; set; }
-        public bool WearingArmor { get; set; }
+        public int WearingArmor { get; set; }
     }
 }
