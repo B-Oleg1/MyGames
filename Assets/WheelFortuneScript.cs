@@ -75,7 +75,7 @@ public class WheelFortuneScript : MonoBehaviour
         {
             // Отличия
         }
-        else if (_prize > 259.9f && _prize <= 259.9f)
+        else if (_prize > 259.9f && _prize < 319)
         {
             // Фулл бай
         }

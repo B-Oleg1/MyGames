@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 163957195}
   - component: {fileID: 163957194}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ArrowDownImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6295,7 +6295,7 @@ GameObject:
   - component: {fileID: 1055725269}
   - component: {fileID: 1055725268}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WheelFortuneImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
