@@ -29,7 +29,7 @@ public static class ModelsScript
                                           { 8.5, 4 },
                                           { 8, 4 },
                                           { 7, 3 },
-                                          { 10, 5 } };
+                                          { 11, 5.5 } };
 
     public static Transform[] allSceneWithQuestion = new Transform[48];
     public static Button[] allBtns;
