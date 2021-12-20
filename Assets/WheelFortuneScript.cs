@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,12 +22,21 @@ public class WheelFortuneScript : MonoBehaviour
     private float _speed;
     private bool _canTurn;
 
+    private int currentGame = -1;
+
     private IEnumerator ienum;
 
     private float _maxTime = 15f;
     private float _time = 15f;
 
     private bool _coroutineIsStarted = false;
+
+    private int _currentExample = 1;
+
+    private DateTime _startTime;
+    private DateTime _endTime;
+
+    private int commandId = 0;
 
     void Start()
     {
@@ -59,19 +69,76 @@ public class WheelFortuneScript : MonoBehaviour
             _coroutineIsStarted = false;
         }
 
+        if (Input.GetKey(KeyCode.K) && currentGame != -1)
+        {
+            if (_allGames[currentGame].childCount == 4)
+            {
+                _allGames[currentGame]?.GetChild(3)?.gameObject.SetActive(false);
+            }
+            _allGames[currentGame].GetChild(0).gameObject.SetActive(true);
+            _allGames[currentGame].GetChild(1).gameObject.SetActive(true);
+            _allGames[currentGame].GetChild(2).gameObject.SetActive(true);
+
+            _slider.gameObject.SetActive(false);
+        }
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            ModelsScript.Players[ModelsScript.attack[1]].Score += ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
-            ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+            //ModelsScript.Players[ModelsScript.attack[1]].Score += ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+            //ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+
+            //ModelsScript.needUpdateCommandId = ModelsScript.attack[1];
+
+            _slider.gameObject.SetActive(false);
+            _allGames[currentGame].gameObject.SetActive(false);
+
+            //ModelsScript.needUpdateCommandId = ModelsScript.attack[2];
 
             _prize = -1;
+            currentGame = -1;
+
+            gameObject.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            _prize = -1;
-
             _slider.gameObject.SetActive(false);
-            _wheelFortune.gameObject.SetActive(false);
+            _allGames[currentGame].gameObject.SetActive(false);
+
+            _prize = -1;
+            currentGame = -1;
+
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void StartMath(int mathId)
+    {
+        if (_currentExample >= 1 && _currentExample <= 11)
+        {
+            if (_currentExample >= 2)
+            {
+                _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample - 1).gameObject.SetActive(false);
+            }
+            else
+            {
+                _startTime = DateTime.Now;
+            }
+
+            _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample).gameObject.SetActive(true);
+            _currentExample++;
+        }
+        else
+        {
+            _endTime = DateTime.Now;
+            var totalTime = _endTime - _startTime;
+            _allGames[3].GetChild(commandId).GetChild(1).GetComponent<InputField>().text = $"{totalTime.TotalSeconds} с";
+            if (commandId == 0)
+            {
+                commandId++;
+            }
+
+            _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample - 1).gameObject.SetActive(false);
+            _currentExample = 1;
         }
     }
 
@@ -79,7 +146,7 @@ public class WheelFortuneScript : MonoBehaviour
     {
         _canTurn = false;
 
-        _numberOfTurns = Random.Range(500, 1000);
+        _numberOfTurns = UnityEngine.Random.Range(500, 1000);
 
         _speed = 0.1f;
 
@@ -91,11 +158,27 @@ public class WheelFortuneScript : MonoBehaviour
             {
                 _speed = 0.065f;
             }
-            if (i > Mathf.RoundToInt(_numberOfTurns * 0.65f))
+            if (i > Mathf.RoundToInt(_numberOfTurns * 0.6f))
             {
-                _speed = 0.035f;
+                _speed = 0.055f;
+            }
+            if (i > Mathf.RoundToInt(_numberOfTurns * 0.7f))
+            {
+                _speed = 0.045f;
+            }
+            if (i > Mathf.RoundToInt(_numberOfTurns * 0.75f))
+            {
+                _speed = 0.04f;
+            }
+            if (i > Mathf.RoundToInt(_numberOfTurns * 0.8f))
+            {
+                _speed = 0.03f;
             }
             if (i > Mathf.RoundToInt(_numberOfTurns * 0.85f))
+            {
+                _speed = 0.02f;
+            }
+            if (i > Mathf.RoundToInt(_numberOfTurns * 0.9f))
             {
                 _speed = 0.01f;
             }
@@ -118,11 +201,13 @@ public class WheelFortuneScript : MonoBehaviour
         if (_prize >= 319 || _prize <= 18.7f)
         {
             // Шерлок
+            currentGame = 0;
             _allGames[0].gameObject.SetActive(true);
         }
         else if (_prize > 18.7f && _prize <= 78.6f)
         {
             // Слова
+            currentGame = 1;
             _allGames[1].gameObject.SetActive(true);
             if (_allPastGames[1] <= 1)
             {
@@ -141,6 +226,7 @@ public class WheelFortuneScript : MonoBehaviour
         else if (_prize > 78.6f && _prize <= 138.7f)
         {
             // Города
+            currentGame = 2;
             _allGames[2].gameObject.SetActive(true);
 
             _slider.gameObject.SetActive(true);
@@ -150,6 +236,7 @@ public class WheelFortuneScript : MonoBehaviour
         else if (_prize > 138.7f && _prize <= 198.8f)
         {
             // Математика
+            currentGame = 3;
             _allGames[3].gameObject.SetActive(true);
             if (_allPastGames[3] <= 1)
             {
@@ -164,6 +251,7 @@ public class WheelFortuneScript : MonoBehaviour
         else if (_prize > 198.8f && _prize <= 259.9f)
         {
             // Отличия
+            currentGame = 4;
             _allGames[4].gameObject.SetActive(true);
             if (_allPastGames[4] <= 1)
             {
@@ -182,6 +270,7 @@ public class WheelFortuneScript : MonoBehaviour
         else if (_prize > 259.9f && _prize < 319)
         {
             // Фулл бай
+            currentGame = 5;
             _allGames[5].gameObject.SetActive(true);
             if (_allPastGames[5] <= 1)
             {
