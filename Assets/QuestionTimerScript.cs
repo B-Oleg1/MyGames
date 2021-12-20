@@ -16,7 +16,7 @@ public class QuestionTimerScript : MonoBehaviour
     private IEnumerator ienum;
     private bool coroutineIsStarted = false;
 
-    private float time = 15f;
+    private float time = 25f;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class QuestionTimerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && !coroutineIsStarted)
         {
             coroutineIsStarted = true;
-            time = 15f;
+            time = 25f;
             _slider.value = 1;
             StartCoroutine(ienum);
         }
@@ -40,10 +40,11 @@ public class QuestionTimerScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            for (int i = 1; i < ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount; i++)
+            if (ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount == 3)
             {
-                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(i).gameObject.SetActive(false);
+                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(2).GetComponent<Animator>().enabled = false;
             }
+            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).gameObject.SetActive(false);
 
             ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(0).gameObject.SetActive(true);
         }
@@ -172,7 +173,7 @@ public class QuestionTimerScript : MonoBehaviour
         while (time > 0)
         {
             time -= Time.deltaTime;
-            _slider.value = time * 0.06666666666666666666666666666667f;
+            _slider.value = time * (1 / 25);
             yield return null;
         }
     }
