@@ -20,13 +20,15 @@ public class QuestionTimerScript : MonoBehaviour
 
     private void Start()
     {
-        ienum = Timer();
+        //ienum = Timer();
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.R) && !coroutineIsStarted)
         {
+            ienum = null;
+            ienum = Timer();
             coroutineIsStarted = true;
             time = 25f;
             _slider.value = 1;
@@ -173,7 +175,7 @@ public class QuestionTimerScript : MonoBehaviour
         while (time > 0)
         {
             time -= Time.deltaTime;
-            _slider.value = time * (1 / 25);
+            _slider.value = time * 0.04f;
             yield return null;
         }
     }

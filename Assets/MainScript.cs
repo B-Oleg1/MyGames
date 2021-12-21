@@ -82,6 +82,11 @@ public class MainScript : MonoBehaviour
             UpdateStatistic(ModelsScript.needUpdateCommandId);
             ModelsScript.needUpdateCommandId = -1;
         }
+
+        if (Input.GetKey(KeyCode.N))
+        {
+            // TODO: включить анимацию появления следующих вопросов
+        }
     }
 
     public void OnClickBsn(int i)
