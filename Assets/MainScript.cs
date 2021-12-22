@@ -13,7 +13,7 @@ public class MainScript : MonoBehaviour
     [SerializeField]
     private Transform _objectWithQuestions;
     [SerializeField]
-    private Transform _objectObjectsWithButtons;
+    private Transform[] _objectObjectsWithButtons;
 
     [SerializeField]
     private Sprite[] _allItemsSprites;
@@ -31,7 +31,22 @@ public class MainScript : MonoBehaviour
             }
         }
 
-        ModelsScript.allBtns = _objectObjectsWithButtons.GetComponentsInChildren<Button>();
+        int s = 0;
+        for (int a = 0; a < _objectObjectsWithButtons.Length; a++)
+        {
+            for (int i = 0; i < _objectObjectsWithButtons[a].childCount; i++)
+            {
+                for (int j = 0; j < _objectObjectsWithButtons[a].GetChild(i).childCount; j++)
+                {
+                    if (_objectObjectsWithButtons[a].GetChild(i).GetChild(j).GetComponent<Button>())
+                    {
+                        ModelsScript.allBtns[s] = _objectObjectsWithButtons[a].GetChild(i).GetChild(j).GetComponent<Button>();
+                        s++;
+                    }
+                }
+            }
+        }
+        print(s);
 
         _questionObject.gameObject.SetActive(false);
         foreach (var item in ModelsScript.allSceneWithQuestion)

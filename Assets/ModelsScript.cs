@@ -32,7 +32,7 @@ public static class ModelsScript
                                           { 11, 5.5 } };
 
     public static Transform[] allSceneWithQuestion = new Transform[96];
-    public static Button[] allBtns;
+    public static Button[] allBtns = new Button[96];
 
     public static int needUpdateCommandId = -1;
 }
