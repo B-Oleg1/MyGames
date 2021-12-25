@@ -1,5 +1,6 @@
 using Assets;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -20,6 +21,9 @@ public class MainScript : MonoBehaviour
 
     [SerializeField]
     private StatisticCommand[] _allCommandStatistics;
+
+    [SerializeField]
+    private Animator[] _startAnimations;
 
     private void Awake()
     {
@@ -46,7 +50,6 @@ public class MainScript : MonoBehaviour
                 }
             }
         }
-        print(s);
 
         _questionObject.gameObject.SetActive(false);
         foreach (var item in ModelsScript.allSceneWithQuestion)
@@ -86,10 +89,18 @@ public class MainScript : MonoBehaviour
         };
 
         GenerateNewBattlePass(0);
+        GenerateNewBattlePass(1);
+        GenerateNewBattlePass(2);
 
         UpdateStatistic(0);
+        UpdateStatistic(1);
+        UpdateStatistic(2);
     }
 
+    private void Start()
+    {
+        StartCoroutine(StartAnimation());
+    }
     private void Update()
     {
         if (ModelsScript.needUpdateCommandId >= 0 && ModelsScript.needUpdateCommandId <= 2)
@@ -195,6 +206,15 @@ public class MainScript : MonoBehaviour
             var shopItemId = (int)Enum.Parse(typeof(ShopItem), ModelsScript.Players[commandId].BattlePassItems[i].ToString());
             _allCommandStatistics[commandId].battlePassItemsObject.GetChild(i).GetComponent<Image>().sprite = _allItemsSprites[shopItemId];
         }
+    }
+
+    private IEnumerator StartAnimation()
+    {
+        _startAnimations[0].SetTrigger("StartButtonsAnim");
+
+        yield return new WaitForSeconds(9.9f);
+
+        _startAnimations[1].SetTrigger("StartHeadersAnim");
     }
 }
 

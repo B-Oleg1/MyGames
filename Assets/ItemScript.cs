@@ -16,22 +16,22 @@ public class ItemScript : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            UseItem(_itemId);
+            UseItem();
             eventData.Reset();
         }
         else if (eventData.button == PointerEventData.InputButton.Middle)
         {
-            BuyItem(_itemId);
+            BuyItem();
             eventData.Reset();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            SellItem(_itemId);
+            SellItem();
             eventData.Reset();
         }
     }
 
-    private void UseItem(int _itemId)
+    private void UseItem()
     {
         if (ModelsScript.Players[_commandId].Items.Any(item => item == (ShopItem)_itemId))
         {
@@ -85,7 +85,7 @@ public class ItemScript : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void BuyItem(int _itemId)
+    private void BuyItem()
     {
         if (ModelsScript.Players[_commandId].ShopScore >= ModelsScript.priceItems[_itemId, 0])
         {
@@ -96,7 +96,7 @@ public class ItemScript : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void SellItem(int _itemId)
+    private void SellItem()
     {
         if (ModelsScript.Players[_commandId].Items.Any(item => item == (ShopItem)_itemId))
         {

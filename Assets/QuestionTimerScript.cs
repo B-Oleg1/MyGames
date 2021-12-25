@@ -59,7 +59,7 @@ public class QuestionTimerScript : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
         {
             _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
         }
         else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
         {
@@ -96,11 +96,16 @@ public class QuestionTimerScript : MonoBehaviour
 
         for (int i = 0; i < ModelsScript.lvlsWithFreeze.Count; i++)
         {
-            ModelsScript.lvlsWithFreeze[i]--;
-            if (ModelsScript.lvlsWithFreeze[i] == 0)
+            if (ModelsScript.lvlsWithFreeze.ContainsKey(i))
             {
-                ModelsScript.allBtns[i].interactable = true;
-                ModelsScript.lvlsWithFreeze.Remove(i);
+                print(1);
+                ModelsScript.lvlsWithFreeze[i]--;
+                if (ModelsScript.lvlsWithFreeze[i] == 0)
+                {
+                    ModelsScript.allBtns[i].interactable = true;
+                    ModelsScript.lvlsWithFreeze.Remove(i);
+                    print(3);
+                }
             }
         }
 
