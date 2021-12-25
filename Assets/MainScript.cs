@@ -41,13 +41,13 @@ public class MainScript : MonoBehaviour
         int s = 0;
         for (int a = 0; a < _objectObjectsWithButtons.Length; a++)
         {
-            for (int i = 0; i < _objectObjectsWithButtons[a].childCount; i++)
+            for (int i = 0; i < _objectObjectsWithButtons[a].GetChild(0).childCount; i++)
             {
-                for (int j = 0; j < _objectObjectsWithButtons[a].GetChild(i).childCount; j++)
+                for (int j = 0; j < _objectObjectsWithButtons[a].GetChild(0).GetChild(i).childCount; j++)
                 {
-                    if (_objectObjectsWithButtons[a].GetChild(i).GetChild(j).GetComponent<Button>())
+                    if (_objectObjectsWithButtons[a].GetChild(0).GetChild(i).GetChild(j).GetComponent<Button>())
                     {
-                        ModelsScript.allBtns[s] = _objectObjectsWithButtons[a].GetChild(i).GetChild(j).GetComponent<Button>();
+                        ModelsScript.allBtns[s] = _objectObjectsWithButtons[a].GetChild(0).GetChild(i).GetChild(j).GetComponent<Button>();
                         s++;
                     }
                 }
@@ -104,6 +104,7 @@ public class MainScript : MonoBehaviour
     {
         StartCoroutine(StartAnimation());
     }
+
     private void Update()
     {
         if (ModelsScript.needUpdateCommandId >= 0 && ModelsScript.needUpdateCommandId <= 2)
@@ -115,6 +116,7 @@ public class MainScript : MonoBehaviour
         if (Input.GetKey(KeyCode.N))
         {
             // TODO: включить анимацию появления следующих вопросов
+
         }
     }
 
@@ -196,7 +198,6 @@ public class MainScript : MonoBehaviour
 
     private void UpdateStatistic(int commandId)
     {
-        print(commandId);
         _allCommandStatistics[commandId].score.text = ModelsScript.Players[commandId].Score.ToString();
         _allCommandStatistics[commandId].scoreShop.text = ModelsScript.Players[commandId].ShopScore.ToString();
 
