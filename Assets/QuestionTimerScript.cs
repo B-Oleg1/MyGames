@@ -27,12 +27,23 @@ public class QuestionTimerScript : MonoBehaviour
             coroutineIsStarted = true;
             time = 25f;
             _slider.value = 1;
+            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47)
+            {
+                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
+                    .GetComponent<AudioSource>().Play();
+            }
             StartCoroutine(ienum);
         }
         if (Input.GetKey(KeyCode.E) && coroutineIsStarted)
         {
             StopCoroutine(ienum);
             coroutineIsStarted = false;
+
+            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47)
+            {
+                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
+                    .GetComponent<AudioSource>().Pause();
+            }
         }
 
         if (Input.GetKey(KeyCode.Q))
@@ -114,6 +125,12 @@ public class QuestionTimerScript : MonoBehaviour
 
         _questionCounted = false;
 
+        if ((ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47) || 
+            (ModelsScript.currentQuestion >= 54 && ModelsScript.currentQuestion <= 59))
+        {
+            ModelsScript.mainMusic.Play();
+        }
+        
         gameObject.SetActive(false);
     }
 

@@ -27,6 +27,13 @@ public class MainScript : MonoBehaviour
 
     [SerializeField]
     private Animator[] _startAnimations;
+    [SerializeField]
+    private Animator[] _newQuestionsAnimations;
+    
+    [SerializeField]
+    private AudioSource _mainMusic;
+
+    private int _countQuestionEnd = 0;
 
     private void Awake()
     {
@@ -64,7 +71,7 @@ public class MainScript : MonoBehaviour
         {
             new Player
             {
-                Name = "Команда1",
+                Name = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ1",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -73,7 +80,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "Команда2",
+                Name = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ2",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -82,7 +89,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "Команда3",
+                Name = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ3",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -102,7 +109,9 @@ public class MainScript : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartAnimation());
+        StartCoroutine(StartAnimation(0));
+
+        ModelsScript.mainMusic = _mainMusic;
     }
 
     private void Update()
@@ -113,10 +122,13 @@ public class MainScript : MonoBehaviour
             ModelsScript.needUpdateCommandId = -1;
         }
 
-        if (Input.GetKey(KeyCode.N))
+        if (Input.GetKey(KeyCode.N) && _countQuestionEnd == 3)
         {
-            // TODO: включить анимацию появления следующих вопросов
+            // TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            _objectObjectsWithButtons[0].gameObject.SetActive(false);
+            _objectObjectsWithButtons[1].gameObject.SetActive(true);
 
+            StartCoroutine(StartAnimation(2));
         }
     }
 
@@ -143,11 +155,19 @@ public class MainScript : MonoBehaviour
             _objectWithQuestions.gameObject.SetActive(true);
             ModelsScript.allSceneWithQuestion[i].gameObject.SetActive(true);
 
+            if ((ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47) || 
+                (ModelsScript.currentQuestion >= 54 && ModelsScript.currentQuestion <= 59))
+            {
+                ModelsScript.mainMusic.Stop();
+            }
+            
             btn.enabled = false;
             var tmp = btn.GetComponent<Image>().color;
             tmp.a = 0;
             btn.GetComponent<Image>().color = tmp;
             btn.GetComponentInChildren<Text>().text = string.Empty;
+
+            _countQuestionEnd++;
         }
     }
 
@@ -215,13 +235,13 @@ public class MainScript : MonoBehaviour
         }
     }
 
-    private IEnumerator StartAnimation()
+    private IEnumerator StartAnimation(int numberAnimation)
     {
-        _startAnimations[0].SetTrigger("StartButtonsAnim");
+        _startAnimations[numberAnimation].SetTrigger("StartButtonsAnim");
 
         yield return new WaitForSeconds(9.9f);
 
-        _startAnimations[1].SetTrigger("StartHeadersAnim");
+        _startAnimations[numberAnimation + 1].SetTrigger("StartHeadersAnim");
     }
 }
 
