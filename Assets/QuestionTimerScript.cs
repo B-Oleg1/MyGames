@@ -13,15 +13,10 @@ public class QuestionTimerScript : MonoBehaviour
     private Slider _slider;
 
     private bool _questionCounted = false;
-    private IEnumerator ienum;
+    private IEnumerator ienum = null;
     private bool coroutineIsStarted = false;
 
     private float time = 25f;
-
-    private void Start()
-    {
-        //ienum = Timer();
-    }
 
     private void Update()
     {

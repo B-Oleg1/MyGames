@@ -23,6 +23,9 @@ public class MainScript : MonoBehaviour
     private StatisticCommand[] _allCommandStatistics;
 
     [SerializeField]
+    private Transform _wheelFortune;
+
+    [SerializeField]
     private Animator[] _startAnimations;
 
     private void Awake()
@@ -175,6 +178,8 @@ public class MainScript : MonoBehaviour
     public void SetEnemyOnSword(int enemyId)
     {
         ModelsScript.attack[2] = enemyId;
+
+        _wheelFortune.gameObject.SetActive(true);
     }
 
     private static void GenerateNewBattlePass(int commandId)
@@ -191,6 +196,7 @@ public class MainScript : MonoBehaviour
 
     private void UpdateStatistic(int commandId)
     {
+        print(commandId);
         _allCommandStatistics[commandId].score.text = ModelsScript.Players[commandId].Score.ToString();
         _allCommandStatistics[commandId].scoreShop.text = ModelsScript.Players[commandId].ShopScore.ToString();
 

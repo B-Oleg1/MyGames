@@ -41,7 +41,6 @@ public class WheelFortuneScript : MonoBehaviour
     void Start()
     {
         _canTurn = true;
-        ienum = Timer();
     }
 
     void Update()
@@ -58,6 +57,8 @@ public class WheelFortuneScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) && !_coroutineIsStarted)
         {
+            ienum = null;
+            ienum = Timer();
             _coroutineIsStarted = true;
             _time = _maxTime;
             _slider.value = 1;
@@ -73,7 +74,7 @@ public class WheelFortuneScript : MonoBehaviour
         {
             if (_allGames[currentGame].childCount == 4)
             {
-                _allGames[currentGame]?.GetChild(3)?.gameObject.SetActive(false);
+                _allGames[currentGame].GetChild(3).gameObject.SetActive(false);
             }
             _allGames[currentGame].GetChild(0).gameObject.SetActive(true);
             _allGames[currentGame].GetChild(1).gameObject.SetActive(true);
@@ -84,18 +85,18 @@ public class WheelFortuneScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            //ModelsScript.Players[ModelsScript.attack[1]].Score += ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
-            //ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+            ModelsScript.Players[ModelsScript.attack[1]].Score += ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+            ModelsScript.needUpdateCommandId = ModelsScript.attack[1];
 
-            //ModelsScript.needUpdateCommandId = ModelsScript.attack[1];
-
+            ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+            
             _slider.gameObject.SetActive(false);
             _allGames[currentGame].gameObject.SetActive(false);
-
-            //ModelsScript.needUpdateCommandId = ModelsScript.attack[2];
-
+            
             _prize = -1;
             currentGame = -1;
+
+            ModelsScript.needUpdateCommandId = ModelsScript.attack[2];
 
             gameObject.SetActive(false);
         }
