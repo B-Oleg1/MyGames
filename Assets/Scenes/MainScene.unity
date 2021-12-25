@@ -47456,8 +47456,8 @@ MonoBehaviour:
   _questionObject: {fileID: 1851227050}
   _objectWithQuestions: {fileID: 951275466}
   _objectObjectsWithButtons:
-  - {fileID: 192431196}
-  - {fileID: 782285446}
+  - {fileID: 668770387}
+  - {fileID: 1654435157}
   _allItemsSprites:
   - {fileID: 21300000, guid: 1a014ed281219074cac896a0dac9486c, type: 3}
   - {fileID: 21300000, guid: 0e64de11ce562ac4fa5aac028c0b84c8, type: 3}
