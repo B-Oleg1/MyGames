@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public static class ModelsScript
 {
+    public static MainScript mainScript;
+
     public static List<Player> Players;
 
     public static bool setFreeze = false;
@@ -26,15 +28,18 @@ public static class ModelsScript
                                           { 4, 2 },
                                           { 7, 3 },
                                           { 7, 3 },
-                                          { 8.5, 4 },
+                                          { 8.5, 4.2 },
                                           { 8, 4 },
-                                          { 7, 3 },
+                                          { 7, 3.5 },
                                           { 11, 5.5 } };
 
     public static Transform[] allSceneWithQuestion = new Transform[96];
     public static Button[] allBtns = new Button[96];
 
     public static AudioSource mainMusic = null;
+    public static AudioSource supportMusic = null;
+
+    public static AudioClip[] allClips;
 
     public static int needUpdateCommandId = -1;
 }

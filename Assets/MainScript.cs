@@ -32,6 +32,11 @@ public class MainScript : MonoBehaviour
     
     [SerializeField]
     private AudioSource _mainMusic;
+    [SerializeField]
+    private AudioSource _supportMusic;
+
+    [SerializeField]
+    private AudioClip[] _allClips;
 
     private int _countQuestionEnd = 0;
 
@@ -111,7 +116,11 @@ public class MainScript : MonoBehaviour
     {
         StartCoroutine(StartAnimation(0));
 
+        ModelsScript.mainScript = this;
+
         ModelsScript.mainMusic = _mainMusic;
+        ModelsScript.supportMusic = _supportMusic;
+        ModelsScript.allClips = _allClips;
     }
 
     private void Update()
@@ -122,7 +131,7 @@ public class MainScript : MonoBehaviour
             ModelsScript.needUpdateCommandId = -1;
         }
 
-        if (Input.GetKey(KeyCode.N) && _countQuestionEnd == 3)
+        if (Input.GetKey(KeyCode.N) && _countQuestionEnd == 48)
         {
             // TODO: �������� �������� ��������� ��������� ��������
             _objectObjectsWithButtons[0].gameObject.SetActive(false);
@@ -160,6 +169,16 @@ public class MainScript : MonoBehaviour
             {
                 ModelsScript.mainMusic.Stop();
             }
+            else
+            {
+                ModelsScript.mainMusic.Stop();
+
+                ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
+                ModelsScript.supportMusic.volume = 0.219f;
+                ModelsScript.supportMusic.Play();
+            }
+
+            
             
             btn.enabled = false;
             var tmp = btn.GetComponent<Image>().color;
@@ -199,9 +218,20 @@ public class MainScript : MonoBehaviour
 
     public void SetEnemyOnSword(int enemyId)
     {
-        ModelsScript.attack[2] = enemyId;
+        if (ModelsScript.Players[enemyId].WearingArmor >= 1)
+        {
+            ModelsScript.attack[0] = 0;
+            ModelsScript.attack[1] = 0;
+        }
+        else if (ModelsScript.attack[0] == 1)
+        {
+            ModelsScript.attack[2] = enemyId;
 
-        _wheelFortune.gameObject.SetActive(true);
+            ModelsScript.supportMusic.clip = ModelsScript.allClips[0];
+            ModelsScript.supportMusic.Play();
+
+            _wheelFortune.gameObject.SetActive(true);
+        }
     }
 
     private static void GenerateNewBattlePass(int commandId)
@@ -232,6 +262,28 @@ public class MainScript : MonoBehaviour
         {
             var shopItemId = (int)Enum.Parse(typeof(ShopItem), ModelsScript.Players[commandId].BattlePassItems[i].ToString());
             _allCommandStatistics[commandId].battlePassItemsObject.GetChild(i).GetComponent<Image>().sprite = _allItemsSprites[shopItemId];
+        }
+    }
+
+    public void UpdateAllStatistic()
+    {
+        for (int a = 0; a < 3; a++)
+        {
+            _allCommandStatistics[a].score.text = ModelsScript.Players[a].Score.ToString();
+            _allCommandStatistics[a].scoreShop.text = ModelsScript.Players[a].ShopScore.ToString();
+
+            for (int i = 0; i < _allCommandStatistics[a].allItems.childCount; i++)
+            {
+                _allCommandStatistics[a].allItems.GetChild(i).GetChild(1).GetComponent<Text>().text = ModelsScript.Players[a].Items.Count(item => item == (ShopItem)i).ToString();
+            }
+
+            _allCommandStatistics[a].battlePassSlider.value = 0.142857f * ModelsScript.Players[a].ProgressBattlePass;
+
+            for (int i = 0; i < _allCommandStatistics[a].battlePassItemsObject.childCount; i++)
+            {
+                var shopItemId = (int)Enum.Parse(typeof(ShopItem), ModelsScript.Players[a].BattlePassItems[i].ToString());
+                _allCommandStatistics[a].battlePassItemsObject.GetChild(i).GetComponent<Image>().sprite = _allItemsSprites[shopItemId];
+            }
         }
     }
 

@@ -86,22 +86,16 @@ public class WheelFortuneScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1))
         {
             ModelsScript.Players[ModelsScript.attack[1]].Score += ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
-            ModelsScript.needUpdateCommandId = ModelsScript.attack[1];
-
-            ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
             
+            ModelsScript.Players[ModelsScript.attack[2]].Score -= ModelsScript.Players[ModelsScript.attack[2]].Score / 2;
+
+            ModelsScript.mainScript.UpdateAllStatistic();
+
             _slider.gameObject.SetActive(false);
             _allGames[currentGame].gameObject.SetActive(false);
             
             _prize = -1;
             currentGame = -1;
-
-            for (int i = 0; i < 500; i++)
-            {
-                i++;
-            }
-
-            ModelsScript.needUpdateCommandId = ModelsScript.attack[2];
 
             gameObject.SetActive(false);
         }
@@ -293,8 +287,8 @@ public class WheelFortuneScript : MonoBehaviour
             }
 
             _slider.gameObject.SetActive(true);
-            _time = 15f;
-            _maxTime = 15f;
+            _time = 25f;
+            _maxTime = 25f;
         }
     }
 

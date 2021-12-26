@@ -27,7 +27,8 @@ public class QuestionTimerScript : MonoBehaviour
             coroutineIsStarted = true;
             time = 25f;
             _slider.value = 1;
-            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47)
+            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47 && !ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
+                    .GetComponent<AudioSource>().isPlaying)
             {
                 ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
                     .GetComponent<AudioSource>().Play();
@@ -39,7 +40,8 @@ public class QuestionTimerScript : MonoBehaviour
             StopCoroutine(ienum);
             coroutineIsStarted = false;
 
-            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47)
+            if (ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47 && ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
+                    .GetComponent<AudioSource>().isPlaying)
             {
                 ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
                     .GetComponent<AudioSource>().Pause();
@@ -100,19 +102,22 @@ public class QuestionTimerScript : MonoBehaviour
         ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
         _objectWithQuestions.gameObject.SetActive(false);
 
-        for (int i = 0; i < ModelsScript.lvlsWithFreeze.Count; i++)
+        int b = 0;
+        int iter = 0;
+        while (b < ModelsScript.lvlsWithFreeze.Count)
         {
-            if (ModelsScript.lvlsWithFreeze.ContainsKey(i))
+            if (ModelsScript.lvlsWithFreeze.ContainsKey(iter))
             {
-                print(1);
-                ModelsScript.lvlsWithFreeze[i]--;
-                if (ModelsScript.lvlsWithFreeze[i] == 0)
+                ModelsScript.lvlsWithFreeze[iter]--;
+                if (ModelsScript.lvlsWithFreeze[iter] == 0)
                 {
-                    ModelsScript.allBtns[i].interactable = true;
-                    ModelsScript.lvlsWithFreeze.Remove(i);
-                    print(3);
+                    ModelsScript.allBtns[iter].interactable = true;
+                    ModelsScript.lvlsWithFreeze.Remove(iter);                    
                 }
+                b++;
             }
+
+            iter++;
         }
 
         for (int i = 0; i < ModelsScript.Players.Count; i++)
@@ -125,12 +130,8 @@ public class QuestionTimerScript : MonoBehaviour
 
         _questionCounted = false;
 
-        if ((ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47) || 
-            (ModelsScript.currentQuestion >= 54 && ModelsScript.currentQuestion <= 59))
-        {
-            ModelsScript.mainMusic.Play();
-        }
-        
+        ModelsScript.mainMusic.Play();
+
         gameObject.SetActive(false);
     }
 
@@ -160,10 +161,16 @@ public class QuestionTimerScript : MonoBehaviour
 
         if (points < 0)
         {
+            ModelsScript.supportMusic.clip = ModelsScript.allClips[2];
+            ModelsScript.supportMusic.Play();
+
             ModelsScript.Players[commandId].ProgressBattlePass = 0;
         }
         else if (points > 0)
         {
+            ModelsScript.supportMusic.clip = ModelsScript.allClips[1];
+            ModelsScript.supportMusic.Play();
+
             ModelsScript.Players[commandId].ProgressBattlePass++;
 
             if (ModelsScript.Players[commandId].ProgressBattlePass < 3)
