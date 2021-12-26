@@ -34,6 +34,8 @@ public static class ModelsScript
     public static Transform[] allSceneWithQuestion = new Transform[96];
     public static Button[] allBtns = new Button[96];
 
+    public static AudioSource mainMusic = null;
+
     public static int needUpdateCommandId = -1;
 }
 

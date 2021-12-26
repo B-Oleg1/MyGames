@@ -96,6 +96,11 @@ public class WheelFortuneScript : MonoBehaviour
             _prize = -1;
             currentGame = -1;
 
+            for (int i = 0; i < 500; i++)
+            {
+                i++;
+            }
+
             ModelsScript.needUpdateCommandId = ModelsScript.attack[2];
 
             gameObject.SetActive(false);
@@ -132,7 +137,7 @@ public class WheelFortuneScript : MonoBehaviour
         {
             _endTime = DateTime.Now;
             var totalTime = _endTime - _startTime;
-            _allGames[3].GetChild(commandId).GetChild(1).GetComponent<InputField>().text = $"{totalTime.TotalSeconds} с";
+            _allGames[3].GetChild(commandId).GetChild(1).GetComponent<InputField>().text = $"{totalTime.TotalSeconds} пїЅ";
             if (commandId == 0)
             {
                 commandId++;
@@ -201,17 +206,18 @@ public class WheelFortuneScript : MonoBehaviour
 
         if (_prize >= 319 || _prize <= 18.7f)
         {
-            // Шерлок
+            // пїЅпїЅпїЅпїЅпїЅпїЅ
             currentGame = 0;
             _allGames[0].gameObject.SetActive(true);
         }
         else if (_prize > 18.7f && _prize <= 78.6f)
         {
-            // Слова
+            // пїЅпїЅпїЅпїЅпїЅ
             currentGame = 1;
             _allGames[1].gameObject.SetActive(true);
             if (_allPastGames[1] <= 1)
             {
+                _allGames[1].GetChild(3).gameObject.SetActive(true);
                 _allGames[1].GetChild(3).GetChild(_allPastGames[1]).gameObject.SetActive(true);
                 _allPastGames[1]++;
             }
@@ -226,7 +232,7 @@ public class WheelFortuneScript : MonoBehaviour
         }
         else if (_prize > 78.6f && _prize <= 138.7f)
         {
-            // Города
+            // пїЅпїЅпїЅпїЅпїЅпїЅ
             currentGame = 2;
             _allGames[2].gameObject.SetActive(true);
 
@@ -236,11 +242,12 @@ public class WheelFortuneScript : MonoBehaviour
         }
         else if (_prize > 138.7f && _prize <= 198.8f)
         {
-            // Математика
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             currentGame = 3;
             _allGames[3].gameObject.SetActive(true);
             if (_allPastGames[3] <= 1)
             {
+                _allGames[3].GetChild(3).gameObject.SetActive(true);
                 _allGames[3].GetChild(3).GetChild(_allPastGames[3]).gameObject.SetActive(true);
                 _allPastGames[3]++;
             }
@@ -251,11 +258,12 @@ public class WheelFortuneScript : MonoBehaviour
         }
         else if (_prize > 198.8f && _prize <= 259.9f)
         {
-            // Отличия
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             currentGame = 4;
             _allGames[4].gameObject.SetActive(true);
             if (_allPastGames[4] <= 1)
             {
+                _allGames[4].GetChild(3).gameObject.SetActive(true);
                 _allGames[4].GetChild(3).GetChild(_allPastGames[4]).gameObject.SetActive(true);
                 _allPastGames[4]++;
             }
@@ -270,11 +278,12 @@ public class WheelFortuneScript : MonoBehaviour
         }
         else if (_prize > 259.9f && _prize < 319)
         {
-            // Фулл бай
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
             currentGame = 5;
             _allGames[5].gameObject.SetActive(true);
             if (_allPastGames[5] <= 1)
             {
+                _allGames[5].GetChild(3).gameObject.SetActive(true);
                 _allGames[5].GetChild(3).GetChild(_allPastGames[5]).gameObject.SetActive(true);
                 _allPastGames[5]++;
             }
