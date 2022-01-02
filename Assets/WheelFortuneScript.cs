@@ -76,8 +76,13 @@ public class WheelFortuneScript : MonoBehaviour
             {
                 _allGames[currentGame].GetChild(3).gameObject.SetActive(false);
             }
+
             _allGames[currentGame].GetChild(0).gameObject.SetActive(true);
+            _allGames[currentGame].GetChild(0).GetChild(0).GetComponent<Text>().text = ModelsScript.Players[ModelsScript.attack[1]].Name;
+
             _allGames[currentGame].GetChild(1).gameObject.SetActive(true);
+            _allGames[currentGame].GetChild(1).GetChild(0).GetComponent<Text>().text = ModelsScript.Players[ModelsScript.attack[2]].Name;
+
             _allGames[currentGame].GetChild(2).gameObject.SetActive(true);
 
             _slider.gameObject.SetActive(false);
@@ -97,6 +102,9 @@ public class WheelFortuneScript : MonoBehaviour
             _prize = -1;
             currentGame = -1;
 
+            ModelsScript.supportMusic.Stop();
+            ModelsScript.mainMusic.Play();
+
             gameObject.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
@@ -107,37 +115,40 @@ public class WheelFortuneScript : MonoBehaviour
             _prize = -1;
             currentGame = -1;
 
+            ModelsScript.supportMusic.Stop();
+            ModelsScript.mainMusic.Play();
+
             gameObject.SetActive(false);
         }
     }
 
-    public void StartMath(int mathId)
+    public void StartMath()
     {
         if (_currentExample >= 1 && _currentExample <= 11)
         {
             if (_currentExample >= 2)
             {
-                _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample - 1).gameObject.SetActive(false);
+                _allGames[3].GetChild(3).GetChild(_allPastGames[3]).GetChild(_currentExample - 1).gameObject.SetActive(false);
             }
             else
             {
                 _startTime = DateTime.Now;
             }
 
-            _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample).gameObject.SetActive(true);
+            _allGames[3].GetChild(3).GetChild(_allPastGames[3]).GetChild(_currentExample).gameObject.SetActive(true);
             _currentExample++;
         }
         else
         {
             _endTime = DateTime.Now;
             var totalTime = _endTime - _startTime;
-            _allGames[3].GetChild(commandId).GetChild(1).GetComponent<InputField>().text = $"{totalTime.TotalSeconds} �";
+            _allGames[3].GetChild(commandId).GetChild(1).GetComponent<InputField>().text = $"{totalTime.TotalSeconds} s";
             if (commandId == 0)
             {
                 commandId++;
             }
 
-            _allGames[3].GetChild(3).GetChild(_allPastGames[3] - 1).GetChild(_currentExample - 1).gameObject.SetActive(false);
+            _allGames[3].GetChild(3).GetChild(_allPastGames[3]).GetChild(_currentExample - 1).gameObject.SetActive(false);
             _currentExample = 1;
         }
     }
@@ -238,6 +249,7 @@ public class WheelFortuneScript : MonoBehaviour
         {
             // ����������
             currentGame = 3;
+            commandId = 0;
             _allGames[3].gameObject.SetActive(true);
             if (_allPastGames[3] <= 1)
             {
@@ -267,8 +279,8 @@ public class WheelFortuneScript : MonoBehaviour
             }
 
             _slider.gameObject.SetActive(true);
-            _time = 25f;
-            _maxTime = 25f;
+            _time = 27f;
+            _maxTime = 27f;
         }
         else if (_prize > 259.9f && _prize < 319)
         {
@@ -290,6 +302,10 @@ public class WheelFortuneScript : MonoBehaviour
             _time = 25f;
             _maxTime = 25f;
         }
+
+        ModelsScript.mainMusic.Stop();
+        ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
+        ModelsScript.supportMusic.Play();
     }
 
     private IEnumerator Timer()

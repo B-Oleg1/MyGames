@@ -24,8 +24,8 @@ public static class ModelsScript
                                           { 1.5, 0.7 },
                                           { 1.5, 0.7 },
                                           { 2, 0.9 },
-                                          { 2.5, 1.2 },
-                                          { 4, 2 },
+                                          { 3, 1.5 },
+                                          { 4.5, 2.2 },
                                           { 7, 3 },
                                           { 7, 3 },
                                           { 8.5, 4.2 },
@@ -33,8 +33,8 @@ public static class ModelsScript
                                           { 7, 3.5 },
                                           { 11, 5.5 } };
 
-    public static Transform[] allSceneWithQuestion = new Transform[96];
-    public static Button[] allBtns = new Button[96];
+    public static Transform[] allSceneWithQuestion = new Transform[112];
+    public static Button[] allBtns = new Button[112];
 
     public static AudioSource mainMusic = null;
     public static AudioSource supportMusic = null;

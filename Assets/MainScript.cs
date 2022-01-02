@@ -76,7 +76,7 @@ public class MainScript : MonoBehaviour
         {
             new Player
             {
-                Name = "�������1",
+                Name = "Команда 1",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -85,7 +85,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "�������2",
+                Name = "Команда 2",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -94,7 +94,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "�������3",
+                Name = "Команда 3",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -131,13 +131,35 @@ public class MainScript : MonoBehaviour
             ModelsScript.needUpdateCommandId = -1;
         }
 
-        if (Input.GetKey(KeyCode.N) && _countQuestionEnd == 48)
+        if (Input.GetKey(KeyCode.N))
         {
-            // TODO: �������� �������� ��������� ��������� ��������
-            _objectObjectsWithButtons[0].gameObject.SetActive(false);
-            _objectObjectsWithButtons[1].gameObject.SetActive(true);
+            if (_countQuestionEnd == 48)
+            {
+                _objectObjectsWithButtons[0].gameObject.SetActive(false);
+                _objectObjectsWithButtons[1].gameObject.SetActive(true);
 
-            StartCoroutine(StartAnimation(2));
+                StartCoroutine(StartAnimation(2));
+            }
+            else if (_countQuestionEnd != 48 && ModelsScript.lvlsWithFreeze.Count > 0)
+            {
+                int b = 0;
+                int iter = 0;
+                while (b < ModelsScript.lvlsWithFreeze.Count)
+                {
+                    if (ModelsScript.lvlsWithFreeze.ContainsKey(iter))
+                    {
+                        ModelsScript.lvlsWithFreeze[iter]--;
+                        if (ModelsScript.lvlsWithFreeze[iter] == 0)
+                        {
+                            ModelsScript.allBtns[iter].interactable = true;
+                            ModelsScript.lvlsWithFreeze.Remove(iter);
+                        }
+                        b++;
+                    }
+
+                    iter++;
+                }
+            }
         }
     }
 
@@ -164,29 +186,30 @@ public class MainScript : MonoBehaviour
             _objectWithQuestions.gameObject.SetActive(true);
             ModelsScript.allSceneWithQuestion[i].gameObject.SetActive(true);
 
-            if ((ModelsScript.currentQuestion >= 42 && ModelsScript.currentQuestion <= 47) || 
-                (ModelsScript.currentQuestion >= 54 && ModelsScript.currentQuestion <= 59))
-            {
-                ModelsScript.mainMusic.Stop();
-            }
-            else
-            {
-                ModelsScript.mainMusic.Stop();
+            ModelsScript.mainMusic.Stop();
 
+            if (!((ModelsScript.currentQuestion >= 49 && ModelsScript.currentQuestion <= 55) || (ModelsScript.currentQuestion >= 63 && ModelsScript.currentQuestion <= 69)))
+            {
                 ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
-                ModelsScript.supportMusic.volume = 0.219f;
                 ModelsScript.supportMusic.Play();
             }
 
-            
-            
+            if (i != 0 && (i + 2) % 7 == 0)
+            {
+                btn.gameObject.SetActive(false);
+                ModelsScript.allBtns[i + 1].gameObject.SetActive(true);
+            }
+
             btn.enabled = false;
             var tmp = btn.GetComponent<Image>().color;
             tmp.a = 0;
             btn.GetComponent<Image>().color = tmp;
             btn.GetComponentInChildren<Text>().text = string.Empty;
 
-            _countQuestionEnd++;
+            if (i == 0 || (i + 1) % 7 != 0)
+            {
+                _countQuestionEnd++;
+            }
         }
     }
 
