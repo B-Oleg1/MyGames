@@ -12,7 +12,11 @@ public static class ModelsScript
 
     public static bool setFreeze = false;
     public static bool setBomb = false;
+    public static bool giveQuestion = false;
     public static int[] attack = new int[3];
+
+    public static int currentCommandIdMove = 0;
+    public static int currentCommandIdResponds = 0;
 
     public static int currentQuestion = 0;
     public static int currentPointsForQuestions = 0;
@@ -22,16 +26,16 @@ public static class ModelsScript
 
     public static double[,] priceItems = { { 1.5, 0.7 },
                                           { 1.5, 0.7 },
-                                          { 1.5, 0.7 },
-                                          { 2, 0.9 },
-                                          { 3, 1.5 },
-                                          { 4.5, 2.2 },
-                                          { 7, 3 },
-                                          { 7, 3 },
-                                          { 8.5, 4.2 },
-                                          { 8, 4 },
+                                          { 2, 1 },
+                                          { 4, 2 },
+                                          { 4, 2 },
+                                          { 6, 3 },
+                                          { 6, 3 },
+                                          { 6, 3 },
+                                          { 9, 4.5 },
                                           { 7, 3.5 },
-                                          { 11, 5.5 } };
+                                          { 9, 4.5 },
+                                          { 10, 5 } };
 
     public static Transform[] allSceneWithQuestion = new Transform[112];
     public static Button[] allBtns = new Button[112];

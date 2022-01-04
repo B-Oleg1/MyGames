@@ -56,10 +56,10 @@ public class ItemScript : MonoBehaviour, IPointerClickHandler
                     ModelsScript.currentBonus.Add(ShopItem.x3);
                     break;
                 case 6:
-                    // take
+                    ModelsScript.currentCommandIdResponds = _commandId;
                     break;
                 case 7:
-                    // give
+                    ModelsScript.giveQuestion = true;
                     break;
                 case 8:
                     ModelsScript.currentBonus.Add(ShopItem.doublemove);

@@ -62,52 +62,70 @@ public class QuestionTimerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
         {
             _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 0));
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions));
         }
         else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
         {
             _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2));
         }
         else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
         {
             _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 1));
+            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1));
         }
-        else if (Input.GetKey(KeyCode.Alpha4) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
-        }
-        else if (Input.GetKey(KeyCode.Alpha5) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions, 2));
-        }
-        else if (Input.GetKey(KeyCode.Alpha6) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 2));
-        }
-        else if (Input.GetKey(KeyCode.Alpha8) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 0));
-        }
-        else if (Input.GetKey(KeyCode.Alpha9) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 1));
-        }
-        else if (Input.GetKey(KeyCode.Alpha0) && !_questionCounted)
-        {
-            _questionCounted = true;
-            StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 2));
-        }
+
+        //if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 0));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 1));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha4) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha5) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 2));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha6) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 2));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha8) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 0));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha9) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 1));
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha0) && !_questionCounted)
+        //{
+        //    _questionCounted = true;
+        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 2));
+        //}
     }
 
-    private IEnumerator End(int points, int commandId)
+    private IEnumerator End(int points)
     {
+        int commandId = ModelsScript.currentCommandIdResponds;
+
         ScoringPoints(points, commandId);
 
         ModelsScript.needUpdateCommandId = commandId;
@@ -143,9 +161,17 @@ public class QuestionTimerScript : MonoBehaviour
             }
         }
 
-        _questionCounted = false;
-
         ModelsScript.mainMusic.Play();
+
+        if (!ModelsScript.currentBonus.Any(item => item == ShopItem.doublemove))
+        {
+            ModelsScript.currentCommandIdMove = (ModelsScript.currentCommandIdMove + 1) % 3;
+        }
+        ModelsScript.currentCommandIdResponds = ModelsScript.currentCommandIdMove;
+
+        ModelsScript.currentBonus.Clear();
+
+        _questionCounted = false;
 
         gameObject.SetActive(false);
     }
@@ -179,6 +205,8 @@ public class QuestionTimerScript : MonoBehaviour
             ModelsScript.supportMusic.clip = ModelsScript.allClips[2];
             ModelsScript.supportMusic.Play();
 
+            ModelsScript.Players[commandId].ShopScore += 0.5;
+
             ModelsScript.Players[commandId].ProgressBattlePass = 0;
         }
         else if (points > 0)
@@ -190,15 +218,19 @@ public class QuestionTimerScript : MonoBehaviour
 
             if (ModelsScript.Players[commandId].ProgressBattlePass < 3)
             {
-                ModelsScript.Players[commandId].ShopScore += 0.5;
-            }
-            else if (ModelsScript.Players[commandId].ProgressBattlePass >= 3 && ModelsScript.Players[commandId].ProgressBattlePass < 6)
-            {
                 ModelsScript.Players[commandId].ShopScore += 1;
+            }
+            else if (ModelsScript.Players[commandId].ProgressBattlePass >= 3 && ModelsScript.Players[commandId].ProgressBattlePass < 5)
+            {
+                ModelsScript.Players[commandId].ShopScore += 1.5;
+            }
+            else if (ModelsScript.Players[commandId].ProgressBattlePass >= 5 && ModelsScript.Players[commandId].ProgressBattlePass < 6)
+            {
+                ModelsScript.Players[commandId].ShopScore += 2;
             }
             else if (ModelsScript.Players[commandId].ProgressBattlePass >= 6)
             {
-                ModelsScript.Players[commandId].ShopScore += 1.5;
+                ModelsScript.Players[commandId].ShopScore += 2.5;
 
                 if (ModelsScript.Players[commandId].ProgressBattlePass == 7)
                 {
@@ -206,9 +238,12 @@ public class QuestionTimerScript : MonoBehaviour
                     ModelsScript.Players[commandId].ProgressBattlePass = 0;
                 }
             }
-        }
 
-        ModelsScript.currentBonus.Clear();
+            if ((ModelsScript.currentQuestion + 1) % 7 == 0)
+            {
+                ModelsScript.Players[commandId].ShopScore += 3;
+            }
+        }
     }
 
     private IEnumerator Timer()

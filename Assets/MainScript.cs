@@ -10,6 +10,9 @@ using UnityEngine.UI;
 public class MainScript : MonoBehaviour
 {
     [SerializeField]
+    private Texture2D _cursorTexture;
+
+    [SerializeField]
     private Transform _questionObject;
     [SerializeField]
     private Transform _objectWithQuestions;
@@ -114,6 +117,8 @@ public class MainScript : MonoBehaviour
 
     private void Start()
     {
+        Cursor.SetCursor(_cursorTexture, Vector2.zero, CursorMode.Auto);
+
         StartCoroutine(StartAnimation(0));
 
         ModelsScript.mainScript = this;
@@ -188,11 +193,8 @@ public class MainScript : MonoBehaviour
 
             ModelsScript.mainMusic.Stop();
 
-            if (!((ModelsScript.currentQuestion >= 49 && ModelsScript.currentQuestion <= 55) || (ModelsScript.currentQuestion >= 63 && ModelsScript.currentQuestion <= 69)))
-            {
-                ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
-                ModelsScript.supportMusic.Play();
-            }
+            ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
+            ModelsScript.supportMusic.Play();
 
             if (i != 0 && (i + 2) % 7 == 0)
             {
@@ -241,19 +243,28 @@ public class MainScript : MonoBehaviour
 
     public void SetEnemyOnSword(int enemyId)
     {
-        if (ModelsScript.Players[enemyId].WearingArmor >= 1)
+        if (ModelsScript.giveQuestion)
         {
-            ModelsScript.attack[0] = 0;
-            ModelsScript.attack[1] = 0;
+            ModelsScript.giveQuestion = false;
+            ModelsScript.currentCommandIdResponds = enemyId;
         }
         else if (ModelsScript.attack[0] == 1)
         {
-            ModelsScript.attack[2] = enemyId;
+            if (ModelsScript.Players[enemyId].WearingArmor >= 1)
+            {
+                ModelsScript.attack[1] = 0;
+            }
+            else
+            {
+                ModelsScript.attack[2] = enemyId;
 
-            ModelsScript.supportMusic.clip = ModelsScript.allClips[0];
-            ModelsScript.supportMusic.Play();
+                ModelsScript.supportMusic.clip = ModelsScript.allClips[0];
+                ModelsScript.supportMusic.Play();
 
-            _wheelFortune.gameObject.SetActive(true);
+                _wheelFortune.gameObject.SetActive(true);
+            }
+
+            ModelsScript.attack[0] = 0;
         }
     }
 

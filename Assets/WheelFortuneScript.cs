@@ -306,6 +306,9 @@ public class WheelFortuneScript : MonoBehaviour
         ModelsScript.mainMusic.Stop();
         ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
         ModelsScript.supportMusic.Play();
+
+        _allGames[currentGame].GetChild(0).GetChild(0).GetComponent<Text>().text = ModelsScript.Players[ModelsScript.attack[1]].Name;
+        _allGames[currentGame].GetChild(1).GetChild(0).GetComponent<Text>().text = ModelsScript.Players[ModelsScript.attack[2]].Name;
     }
 
     private IEnumerator Timer()
