@@ -6,6 +6,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MainScript : MonoBehaviour
 {
@@ -193,8 +194,12 @@ public class MainScript : MonoBehaviour
 
             ModelsScript.mainMusic.Stop();
 
-            ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
-            ModelsScript.supportMusic.Play();
+            if (!(_objectWithQuestions.GetChild(i).gameObject.GetComponentsInChildren<AudioSource>().Length > 0 ||
+                _objectWithQuestions.GetChild(i).gameObject.GetComponentsInChildren<VideoPlayer>().Length > 0))
+            {
+                ModelsScript.supportMusic.clip = ModelsScript.allClips[3];
+                ModelsScript.supportMusic.Play();
+            }
 
             if (i != 0 && (i + 2) % 7 == 0)
             {

@@ -161,8 +161,6 @@ public class QuestionTimerScript : MonoBehaviour
             }
         }
 
-        ModelsScript.mainMusic.Play();
-
         if (!ModelsScript.currentBonus.Any(item => item == ShopItem.doublemove))
         {
             ModelsScript.currentCommandIdMove = (ModelsScript.currentCommandIdMove + 1) % 3;
@@ -170,6 +168,8 @@ public class QuestionTimerScript : MonoBehaviour
         ModelsScript.currentCommandIdResponds = ModelsScript.currentCommandIdMove;
 
         ModelsScript.currentBonus.Clear();
+
+        ModelsScript.mainMusic.Play();
 
         _questionCounted = false;
 
