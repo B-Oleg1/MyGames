@@ -11,6 +11,10 @@ using UnityEngine.Video;
 public class MainScript : MonoBehaviour
 {
     [SerializeField]
+    private Image _cursor;
+    private Vector3 _lastMousePosition;
+
+    [SerializeField]
     private Texture2D _cursorTexture;
 
     [SerializeField]
@@ -80,7 +84,7 @@ public class MainScript : MonoBehaviour
         {
             new Player
             {
-                Name = "Команда 1",
+                Name = "Лютые",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -89,7 +93,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "Команда 2",
+                Name = "t1poKARATE",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -98,7 +102,7 @@ public class MainScript : MonoBehaviour
             },
             new Player
             {
-                Name = "Команда 3",
+                Name = "Амогусы",
                 Score = 0,
                 ShopScore = 0,
                 ProgressBattlePass = 0,
@@ -127,6 +131,8 @@ public class MainScript : MonoBehaviour
         ModelsScript.mainMusic = _mainMusic;
         ModelsScript.supportMusic = _supportMusic;
         ModelsScript.allClips = _allClips;
+        _lastMousePosition = Input.mousePosition;
+        _cursor.transform.position = _lastMousePosition;
     }
 
     private void Update()
@@ -166,6 +172,13 @@ public class MainScript : MonoBehaviour
                     iter++;
                 }
             }
+        }
+        Cursor.visible = false;
+        if (Input.mousePosition != _lastMousePosition)
+        {
+            print(Input.mousePosition + " " + _lastMousePosition);
+            _lastMousePosition = Input.mousePosition;
+            _cursor.transform.localPosition = new Vector2(_lastMousePosition.x - 938, _lastMousePosition.y - 565);
         }
     }
 

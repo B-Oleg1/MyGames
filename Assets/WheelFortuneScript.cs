@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class WheelFortuneScript : MonoBehaviour
 {
@@ -104,6 +105,11 @@ public class WheelFortuneScript : MonoBehaviour
 
             ModelsScript.supportMusic.Stop();
             ModelsScript.mainMusic.Play();
+            if (!ModelsScript.currentBonus.Any(item => item == ShopItem.doublemove))
+            {
+                ModelsScript.currentCommandIdMove = (ModelsScript.currentCommandIdMove + 1) % 3;
+            }
+            ModelsScript.currentCommandIdResponds = ModelsScript.currentCommandIdMove;
 
             gameObject.SetActive(false);
         }
@@ -117,6 +123,11 @@ public class WheelFortuneScript : MonoBehaviour
 
             ModelsScript.supportMusic.Stop();
             ModelsScript.mainMusic.Play();
+            if (!ModelsScript.currentBonus.Any(item => item == ShopItem.doublemove))
+            {
+                ModelsScript.currentCommandIdMove = (ModelsScript.currentCommandIdMove + 1) % 3;
+            }
+            ModelsScript.currentCommandIdResponds = ModelsScript.currentCommandIdMove;
 
             gameObject.SetActive(false);
         }

@@ -27,11 +27,10 @@ public class QuestionTimerScript : MonoBehaviour
             coroutineIsStarted = true;
             time = 25f;
             _slider.value = 1;
-            if (ModelsScript.currentQuestion >= 49 && ModelsScript.currentQuestion <= 55 && !ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
+            if (ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetComponentInChildren<AudioSource>() && !ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
                     .GetComponent<AudioSource>().isPlaying)
             {
-                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
-                    .GetComponent<AudioSource>().Play();
+                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetComponentInChildren<AudioSource>().Play();
             }
             StartCoroutine(ienum);
         }
@@ -128,8 +127,6 @@ public class QuestionTimerScript : MonoBehaviour
 
         ScoringPoints(points, commandId);
 
-        ModelsScript.needUpdateCommandId = commandId;
-
         yield return new WaitForSeconds(1.5f);
 
         ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
@@ -152,6 +149,7 @@ public class QuestionTimerScript : MonoBehaviour
 
             iter++;
         }
+        if(ModelsScript.currentPointsForQuestions == 700) ModelsScript.Players[ModelsScript.currentCommandIdResponds].Items.Add((ShopItem)Random.Range(0,12));
 
         for (int i = 0; i < ModelsScript.Players.Count; i++)
         {
@@ -166,7 +164,7 @@ public class QuestionTimerScript : MonoBehaviour
             ModelsScript.currentCommandIdMove = (ModelsScript.currentCommandIdMove + 1) % 3;
         }
         ModelsScript.currentCommandIdResponds = ModelsScript.currentCommandIdMove;
-
+        ModelsScript.needUpdateCommandId = commandId;
         ModelsScript.currentBonus.Clear();
 
         ModelsScript.mainMusic.Play();
