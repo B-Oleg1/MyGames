@@ -36,6 +36,8 @@ public class EditorScript : MonoBehaviour
     private int _currentRoundId = 0;
     private int _currentQuestionOrAnswer = 0;
 
+    private string[] _directions = { "LeftBottom", "RightBottom", "LeftTop", "RightTop" };
+
     private string[] _randomWords = { "Approach", "Establish", "Attorney", "Tease", "Will", "Fortitude", "Torn", "Hero", "Catering", "Carefully",
         "Signal", "Totebook", "Orientalist", "Cable", "Distance", "Echo", "Hair", "Most", "Zombie", "Up" };
 
@@ -43,10 +45,24 @@ public class EditorScript : MonoBehaviour
     {
         LoadAllSaves();
 
+        _textInputField = new GameObject();
         _textInputField.AddComponent<Text>();
+
+        _placeholderInputField = new GameObject();
         _placeholderInputField.AddComponent<Text>();
+
+        _inputField = new GameObject();
         _inputField.AddComponent<InputField>().textComponent = _textInputField.GetComponent<Text>();
         _inputField.GetComponent<InputField>().placeholder = _placeholderInputField.GetComponent<Text>();
+
+        _textInputField.hideFlags = HideFlags.HideInHierarchy;
+        _placeholderInputField.hideFlags = HideFlags.HideInHierarchy;
+        _inputField.hideFlags = HideFlags.HideInHierarchy;
+    }
+
+    private void Update()
+    {
+        print(Input.mousePosition);
     }
 
     public void AddNewSave()
@@ -302,20 +318,22 @@ public class EditorScript : MonoBehaviour
     private void AddUIOnNewObject(GameObject newGameObject, long objectId, int questOrAsnw)
     {
         string nameButton = string.Empty;
-
-        string[] directions = { "LeftTop", "RightTop", "LeftBottom", "RightBottom" };
+        
         for (int i = 0; i < 4; i++)
         {
             GameObject resizingButton = new GameObject();
+            resizingButton.AddComponent<RectTransform>();
+            resizingButton.AddComponent<Image>();
+            resizingButton.AddComponent<Button>();
             resizingButton.AddComponent<EventTrigger>();
 
             resizingButton.transform.SetParent(newGameObject.transform);
 
-            resizingButton.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-            resizingButton.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+            resizingButton.GetComponent<RectTransform>().anchorMin = new Vector2(i % 2, i / 2);
+            resizingButton.GetComponent<RectTransform>().anchorMax = new Vector2(i % 2, i / 2);
 
-            resizingButton.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
-            resizingButton.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+            resizingButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            resizingButton.GetComponent<RectTransform>().sizeDelta = new Vector2(15, 15);
 
             resizingButton.transform.localScale = new Vector3(1f, 1f, 1f);
 
@@ -324,7 +342,9 @@ public class EditorScript : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.Drag;
 
-            entry.callback.AddListener((data) => OnMoveButton((PointerEventData)data, directions[i]));
+            string nameDir = _directions[i];
+            entry.callback.RemoveAllListeners();
+            entry.callback.AddListener((data) => OnMoveButton((PointerEventData)data, nameDir));
             resizingButton.GetComponent<EventTrigger>().triggers.Add(entry);
         }
 
@@ -371,7 +391,7 @@ public class EditorScript : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             // Hide buttons for resizing
-            if (_currentEditObject is not null && !_currentEditObject.GetComponent<AudioSource>())
+            if (_currentEditObject != null && !_currentEditObject.GetComponent<AudioSource>())
             {
                 for (int i = 0; i < 4; i++)
                 {
@@ -395,7 +415,6 @@ public class EditorScript : MonoBehaviour
                     newGameObject.transform.GetChild(i).gameObject.SetActive(true);
                 }
             }
-            
 
             if (newGameObject.GetComponent<Text>())
             {
@@ -562,23 +581,34 @@ public class EditorScript : MonoBehaviour
                 break;
             case "Left":
                 var left = _currentEditObject.GetComponent<RectTransform>().offsetMin;
-                left.x = int.Parse(inputField.text);
+                /*if (Screen.width > 1920)
+                {
+                    left.x = Convert.ToInt32(int.Parse(inputField.text) * (1920f / Screen.width));
+                }
+                else
+                {
+                    left.x = int.Parse(inputField.text);
+                }*/
+                left.x = Convert.ToInt32(int.Parse(inputField.text) * (1920f / Screen.width));
                 _currentEditObject.GetComponent<RectTransform>().offsetMin = left;
 
                 if (_currentEditObject.GetComponent<Text>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(2).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveText
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Left = int.Parse(inputField.text);
                 }
                 else if (_currentEditObject.GetComponent<Image>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(1).GetChild(1).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveImage
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Left = int.Parse(inputField.text);
                 }
                 else if (_currentEditObject.GetComponent<VideoPlayer>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(3).GetChild(1).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveVideo
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Left = int.Parse(inputField.text);
@@ -587,23 +617,34 @@ public class EditorScript : MonoBehaviour
                 break;
             case "Right":
                 var right = _currentEditObject.GetComponent<RectTransform>().offsetMax;
-                right.x = int.Parse(inputField.text) * -1;
+                /*if (Screen.width > 1920)
+                {
+                    right.x = Convert.ToInt32(int.Parse(inputField.text) * (1920f / Screen.width)) * -1;
+                }
+                else
+                {
+                    right.x = int.Parse(inputField.text) * -1;
+                }*/
+                right.x = Convert.ToInt32(int.Parse(inputField.text) * (1920f / Screen.width)) * -1;
                 _currentEditObject.GetComponent<RectTransform>().offsetMax = right;
 
                 if (_currentEditObject.GetComponent<Text>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(3).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveText
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Right = int.Parse(inputField.text) * -1;
                 }
                 else if (_currentEditObject.GetComponent<Image>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(1).GetChild(2).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveImage
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Right = int.Parse(inputField.text) * -1;
                 }
                 else if (_currentEditObject.GetComponent<VideoPlayer>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(3).GetChild(2).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveVideo
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Right = int.Parse(inputField.text) * -1;
@@ -611,23 +652,26 @@ public class EditorScript : MonoBehaviour
                 break;
             case "Top":
                 var top = _currentEditObject.GetComponent<RectTransform>().offsetMax;
-                top.y = int.Parse(inputField.text) * -1;
+                top.y = Convert.ToInt32(int.Parse(inputField.text) * (1080f / Screen.height)) * -1;
                 _currentEditObject.GetComponent<RectTransform>().offsetMax = top;
 
                 if (_currentEditObject.GetComponent<Text>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(4).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveText
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Top = int.Parse(inputField.text) * -1;
                 }
                 else if (_currentEditObject.GetComponent<Image>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(1).GetChild(3).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveImage
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Top = int.Parse(inputField.text) * -1;
                 }
                 else if (_currentEditObject.GetComponent<VideoPlayer>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(3).GetChild(3).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveVideo
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Top = int.Parse(inputField.text) * -1;
@@ -635,23 +679,26 @@ public class EditorScript : MonoBehaviour
                 break;
             case "Bottom":
                 var bottom = _currentEditObject.GetComponent<RectTransform>().offsetMin;
-                bottom.y = int.Parse(inputField.text);
+                bottom.y = Convert.ToInt32(int.Parse(inputField.text) * (1080f / Screen.height));
                 _currentEditObject.GetComponent<RectTransform>().offsetMin = bottom;
 
                 if (_currentEditObject.GetComponent<Text>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(5).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveText
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Bottom = int.Parse(inputField.text);
                 }
                 else if (_currentEditObject.GetComponent<Image>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(1).GetChild(4).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveImage
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Bottom = int.Parse(inputField.text);
                 }
                 else if (_currentEditObject.GetComponent<VideoPlayer>())
                 {
+                    _editObject.transform.GetChild(1).GetChild(2).GetChild(3).GetChild(4).GetComponent<InputField>().text = int.Parse(inputField.text).ToString();
                     _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[_currentQuestionOrAnswer].SaveVideo
                                                                                                             .FirstOrDefault(item => item.Id == _currentIdObject)
                                                                                                             .Bottom = int.Parse(inputField.text);
@@ -666,43 +713,53 @@ public class EditorScript : MonoBehaviour
     {
         if (nameDirection == "LeftTop")
         {
-            _inputField.GetComponent<InputField>().placeholder.name = "Left";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.x.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Left";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Input.mousePosition.x).ToString();
 
             OnEditInputText(_inputField.GetComponent<InputField>());
 
-            _inputField.GetComponent<InputField>().placeholder.name = "Top";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.y.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Top";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Screen.height - Input.mousePosition.y).ToString();
+            
+            OnEditInputText(_inputField.GetComponent<InputField>());
         }
         else if (nameDirection == "RightTop")
         {
-            _inputField.GetComponent<InputField>().placeholder.name = "Right";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.x.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Right";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Screen.width - Input.mousePosition.x).ToString();
 
             OnEditInputText(_inputField.GetComponent<InputField>());
 
-            _inputField.GetComponent<InputField>().placeholder.name = "Top";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.y.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Top";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Screen.height - Input.mousePosition.y).ToString();
+
+            OnEditInputText(_inputField.GetComponent<InputField>());
         }
         else if (nameDirection == "LeftBottom")
         {
-            _inputField.GetComponent<InputField>().placeholder.name = "Left";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.x.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Left";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Input.mousePosition.x).ToString();
 
             OnEditInputText(_inputField.GetComponent<InputField>());
 
-            _inputField.GetComponent<InputField>().placeholder.name = "Bottom";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.y.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Bottom";
+            // Input.mousePosition.y - (Screen.height - _currentEditObject.transform.parent.GetComponent<RectTransform>().rect.height)
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Input.mousePosition.y - (_editObject.GetChild(1).GetComponent<RectTransform>().rect.height * (Screen.height / 1080f))).ToString();
+
+            OnEditInputText(_inputField.GetComponent<InputField>());
         }
         else if (nameDirection == "RightBottom")
         {
-            _inputField.GetComponent<InputField>().placeholder.name = "Right";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.x.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Right";
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Screen.width - Input.mousePosition.x).ToString();
 
             OnEditInputText(_inputField.GetComponent<InputField>());
 
-            _inputField.GetComponent<InputField>().placeholder.name = "Bottom";
-            _inputField.GetComponent<InputField>().text = Input.mousePosition.y.ToString();
+            _inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "Bottom";
+            // Input.mousePosition.y - (Screen.height - _currentEditObject.transform.parent.GetComponent<RectTransform>().rect.height)
+            _inputField.GetComponent<InputField>().text = Convert.ToInt32(Input.mousePosition.y - (_editObject.GetChild(1).GetComponent<RectTransform>().rect.height * (Screen.height / 1080f))).ToString();
+
+            OnEditInputText(_inputField.GetComponent<InputField>());
         }
     }
 }
