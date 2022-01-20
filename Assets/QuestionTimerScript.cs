@@ -73,52 +73,6 @@ public class QuestionTimerScript : MonoBehaviour
             _questionCounted = true;
             StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1));
         }
-
-        //if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 0));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha2) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 0));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha3) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 1));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha4) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 1));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha5) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions, 2));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha6) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions * -1, 2));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha8) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 0));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha9) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 1));
-        //}
-        //else if (Input.GetKey(KeyCode.Alpha0) && !_questionCounted)
-        //{
-        //    _questionCounted = true;
-        //    StartCoroutine(End(ModelsScript.currentPointsForQuestions / 2, 2));
-        //}
     }
 
     private IEnumerator End(int points)
@@ -149,7 +103,6 @@ public class QuestionTimerScript : MonoBehaviour
 
             iter++;
         }
-        if(ModelsScript.currentPointsForQuestions == 700) ModelsScript.Players[ModelsScript.currentCommandIdResponds].Items.Add((ShopItem)Random.Range(0,12));
 
         for (int i = 0; i < ModelsScript.Players.Count; i++)
         {
@@ -240,6 +193,7 @@ public class QuestionTimerScript : MonoBehaviour
             if ((ModelsScript.currentQuestion + 1) % 7 == 0)
             {
                 ModelsScript.Players[commandId].ShopScore += 3;
+                ModelsScript.Players[ModelsScript.currentCommandIdResponds].Items.Add((ShopItem)Random.Range(0, 12));
             }
         }
     }

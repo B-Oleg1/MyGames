@@ -2,7 +2,9 @@ using Assets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,10 +14,6 @@ public class MainScript : MonoBehaviour
 {
     [SerializeField]
     private Image _cursor;
-    private Vector3 _lastMousePosition;
-
-    [SerializeField]
-    private Texture2D _cursorTexture;
 
     [SerializeField]
     private Transform _questionObject;
@@ -47,7 +45,7 @@ public class MainScript : MonoBehaviour
     private AudioClip[] _allClips;
 
     private int _countQuestionEnd = 0;
-
+    private Vector3 _lastMousePosition;
     private void Awake()
     {
         for (int i = 0; i < _objectWithQuestions.childCount; i++)
@@ -122,7 +120,23 @@ public class MainScript : MonoBehaviour
 
     private void Start()
     {
-        Cursor.SetCursor(_cursorTexture, Vector2.zero, CursorMode.Auto);
+        //string path = "E:\\Skill Check Game\\MyGames\\Assets\\Images\\zol.jpg";
+
+        //FileStream files = new FileStream(path, FileMode.Open);
+
+        //byte[] imgByte = new byte[files.Length];
+
+        //files.Read(imgByte, 0, imgByte.Length);
+
+        //files.Close();
+
+        //Texture2D texture2D = new Texture2D(1920, 1080);
+        //texture2D.LoadImage(imgByte);
+
+        //Sprite spr = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.zero);
+        //_allCommandStatistics[0].battlePassItemsObject.GetChild(0).GetComponent<Image>().sprite = spr;
+
+        _allCommandStatistics[0].score.text = Application.dataPath;
 
         StartCoroutine(StartAnimation(0));
 

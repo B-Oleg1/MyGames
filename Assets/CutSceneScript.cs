@@ -9,9 +9,14 @@ public class CutSceneScript : MonoBehaviour
     [SerializeField]
     private VideoPlayer _video;
 
-    public void OnClick()
+    public void OnClickStart()
     {
         StartCoroutine(LoadMainScene());
+    }
+
+    public void OnClickEdit()
+    {
+        SceneManager.LoadScene(2);
     }
 
     private IEnumerator LoadMainScene()
