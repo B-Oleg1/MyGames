@@ -190,7 +190,6 @@ public class MainScript : MonoBehaviour
         Cursor.visible = false;
         if (Input.mousePosition != _lastMousePosition)
         {
-            print(Input.mousePosition + " " + _lastMousePosition);
             _lastMousePosition = Input.mousePosition;
             _cursor.transform.localPosition = new Vector2(_lastMousePosition.x - 938, _lastMousePosition.y - 565);
         }
