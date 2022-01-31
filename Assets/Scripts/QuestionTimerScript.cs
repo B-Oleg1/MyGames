@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class QuestionTimerScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform _objectWithQuestions;
-
-    [SerializeField]
-    private Slider _slider;
+    private Image _timer;
 
     private bool _questionCounted = false;
     private IEnumerator ienum = null;
@@ -23,39 +21,48 @@ public class QuestionTimerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && !coroutineIsStarted)
         {
             ienum = null;
+
             ienum = Timer();
             coroutineIsStarted = true;
             time = 25f;
-            _slider.value = 1;
-            if (ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetComponentInChildren<AudioSource>() && !ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
-                    .GetComponent<AudioSource>().isPlaying)
-            {
-                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetComponentInChildren<AudioSource>().Play();
-            }
+            _timer.fillAmount = 1;
+
             StartCoroutine(ienum);
         }
         if (Input.GetKey(KeyCode.E) && coroutineIsStarted)
         {
             StopCoroutine(ienum);
             coroutineIsStarted = false;
-
-            if (ModelsScript.currentQuestion >= 49 && ModelsScript.currentQuestion <= 55 && ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
-                    .GetComponent<AudioSource>().isPlaying)
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            if (transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>() &&
+                !transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>().isPlaying)
             {
-                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).GetChild(0)
-                    .GetComponent<AudioSource>().Pause();
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>().Play();
+            }
+            else if (transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>() &&
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>().isPlaying)
+            {
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<AudioSource>().Pause();
+            }
+
+            if (transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>() &&
+                !transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>().isPlaying)
+            {
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>().Play();
+            }
+            else if (transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>() &&
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>().isPlaying)
+            {
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponentInChildren<VideoPlayer>().Pause();
             }
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
-            if (ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].childCount == 3)
-            {
-                ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(2).GetComponent<Animator>().enabled = false;
-            }
-            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(1).gameObject.SetActive(false);
-
-            ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
         }
 
         if (Input.GetKey(KeyCode.Alpha1) && !_questionCounted)
@@ -82,9 +89,6 @@ public class QuestionTimerScript : MonoBehaviour
         ScoringPoints(points, commandId);
 
         yield return new WaitForSeconds(1.5f);
-
-        ModelsScript.allSceneWithQuestion[ModelsScript.currentQuestion].gameObject.SetActive(false);
-        _objectWithQuestions.gameObject.SetActive(false);
 
         int b = 0;
         int iter = 0;
@@ -123,6 +127,17 @@ public class QuestionTimerScript : MonoBehaviour
         ModelsScript.mainMusic.Play();
 
         _questionCounted = false;
+
+        for (int i = 0; i < transform.GetChild(0).GetChild(0).childCount; i++)
+        {
+            for (int a = 0; a < transform.GetChild(0).GetChild(0).GetChild(i).childCount; a++)
+            {
+                Destroy(transform.GetChild(0).GetChild(0).GetChild(i).GetChild(a).gameObject);
+            }
+        }
+
+        transform.GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(true);
 
         gameObject.SetActive(false);
     }
@@ -203,7 +218,7 @@ public class QuestionTimerScript : MonoBehaviour
         while (time > 0)
         {
             time -= Time.deltaTime;
-            _slider.value = time * 0.04f;
+            _timer.fillAmount = time * 0.04f;
             yield return null;
         }
     }

@@ -8,6 +8,8 @@ public static class ModelsScript
 {
     public static MainScript mainScript;
 
+    public static SaveCategory[] savedCategory = new SaveCategory[16];
+
     public static List<Player> Players;
 
     public static bool setFreeze = false;
@@ -37,7 +39,6 @@ public static class ModelsScript
                                           { 9, 4.5 },
                                           { 10, 5 } };
 
-    public static Transform[] allSceneWithQuestion = new Transform[112];
     public static Button[] allBtns = new Button[112];
 
     public static AudioSource mainMusic = null;

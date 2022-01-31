@@ -4,9 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -20,6 +22,9 @@ public class EditorScript : MonoBehaviour
 
     [SerializeField]
     private Transform _editObject;
+
+    [SerializeField]
+    private GameObject _savingImage;
 
     [SerializeField]
     private RenderTexture _renderTexture;
@@ -158,19 +163,26 @@ public class EditorScript : MonoBehaviour
 
     public void SaveGame()
     {
+        _savingImage.SetActive(true);
+
         var json = JsonConvert.SerializeObject(_savedCategory);
-        using (FileStream fileStream = new FileStream($"{Application.dataPath}/Saves/{_fileName}", FileMode.Open))
+        using (StreamWriter sw = new StreamWriter($"{Application.dataPath}/Saves/{_fileName}", false, Encoding.UTF8))
         {
-            using (StreamWriter sw = new StreamWriter(fileStream))
-            {
-                sw.WriteLine(json);
-            }
+            sw.Write(json);
         }
+
+        _savingImage.SetActive(false);
     }
 
     public void OnClickEditButton(int roundId)
     {
         _currentRoundId = roundId;
+
+        _currentQuestionOrAnswer = 0;
+        _editObject.GetChild(0).GetChild(_currentQuestionOrAnswer).gameObject.SetActive(true);
+        _editObject.GetChild(0).GetChild((_currentQuestionOrAnswer - 1) * -1).gameObject.SetActive(false);
+        _editObject.GetChild(1).GetChild(_currentQuestionOrAnswer).gameObject.SetActive(true);
+        _editObject.GetChild(1).GetChild((_currentQuestionOrAnswer - 1) * -1).gameObject.SetActive(false);
 
         _editObject.gameObject.SetActive(true);
 
@@ -220,19 +232,22 @@ public class EditorScript : MonoBehaviour
                 var newGameObject = new GameObject();
                 newGameObject.AddComponent<Image>();
 
-                FileStream imgFile = new FileStream(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveImage[a].PathToImage, FileMode.Open);
+                if (File.Exists(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveImage[a].PathToImage))
+                {
+                    FileStream imgFile = new FileStream(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveImage[a].PathToImage, FileMode.Open);
 
-                byte[] imgByte = new byte[imgFile.Length];
+                    byte[] imgByte = new byte[imgFile.Length];
 
-                imgFile.Read(imgByte, 0, imgByte.Length);
+                    imgFile.Read(imgByte, 0, imgByte.Length);
 
-                imgFile.Close();
+                    imgFile.Close();
 
-                Texture2D texture2d = new Texture2D(1920, 1080);
-                texture2d.LoadImage(imgByte);
+                    Texture2D texture2d = new Texture2D(1920, 1080);
+                    texture2d.LoadImage(imgByte);
 
-                Sprite spr = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), Vector2.zero);
-                newGameObject.GetComponent<Image>().sprite = spr;
+                    Sprite spr = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), Vector2.zero);
+                    newGameObject.GetComponent<Image>().sprite = spr;
+                }
 
                 newGameObject.transform.SetParent(_editObject.GetChild(0).GetChild(i));
 
@@ -253,7 +268,10 @@ public class EditorScript : MonoBehaviour
                 var newGameObject = new GameObject();
                 newGameObject.AddComponent<AudioSource>();
 
-                StartCoroutine(LoadAudio(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveAudio[a].PathToAudio, newGameObject));
+                if (File.Exists(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveAudio[a].PathToAudio))
+                {
+                    StartCoroutine(LoadAudio(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveAudio[a].PathToAudio, newGameObject));
+                }
 
                 newGameObject.transform.SetParent(_editObject.GetChild(0).GetChild(i));
 
@@ -264,10 +282,13 @@ public class EditorScript : MonoBehaviour
                 var newGameObject = new GameObject();
                 newGameObject.AddComponent<RectTransform>();
                 newGameObject.AddComponent<VideoPlayer>().source = VideoSource.Url;
-                newGameObject.GetComponent<VideoPlayer>().url = _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveVideo[a].PathToVideo;
                 newGameObject.GetComponent<VideoPlayer>().targetTexture = _renderTexture;
 
-                newGameObject.GetComponent<VideoPlayer>().Stop();
+                if (File.Exists(_savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveVideo[a].PathToVideo))
+                {
+                    newGameObject.GetComponent<VideoPlayer>().url = _savedCategory[(_currentRoundId + 1) / 7].SaveRound[_currentRoundId % 7].SaveLayouts[i].SaveVideo[a].PathToVideo;
+                    newGameObject.GetComponent<VideoPlayer>().Stop();
+                }
 
                 newGameObject.transform.SetParent(_editObject.GetChild(0).GetChild(i));
 
@@ -434,6 +455,7 @@ public class EditorScript : MonoBehaviour
     {
         string nameButton = string.Empty;
 
+        // Add scalability buttons
         if (!newGameObject.GetComponent<AudioSource>())
         {
             newGameObject.AddComponent<EventTrigger>();
@@ -699,6 +721,11 @@ public class EditorScript : MonoBehaviour
         if (inputField.text.Length > 0)
         {
             string nameAction = inputField.placeholder.GetComponent<Text>().text;
+            if (nameAction.Split(' ').Length > 1 && nameAction.Split(' ')[0] == "Category")
+            {
+                _savedCategory[int.Parse(nameAction.Split(' ')[1]) - 1].Name = inputField.text;
+            }
+
             switch (nameAction)
             {
                 case "Text":
@@ -864,6 +891,7 @@ public class EditorScript : MonoBehaviour
         }
     }
 
+    [Obsolete]
     private IEnumerator LoadAudio(string path, GameObject currentGameObject)
     {
         WWW request = new WWW(path);
@@ -1094,6 +1122,30 @@ public class EditorScript : MonoBehaviour
             
             OnEditInputText(_inputField.GetComponent<InputField>());
         }
+    }
+
+    public void DeleteAllObjects()
+    {
+        for (int i = 0; i < _editObject.GetChild(0).childCount; i++)
+        {
+            for (int a = 0; a < _editObject.GetChild(0).GetChild(i).childCount; a++)
+            {
+                Destroy(_editObject.GetChild(0).GetChild(i).GetChild(a).gameObject);
+            }
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            for (int a = 0; a < _editObject.GetChild(1).GetChild(i).GetChild(0).GetChild(0).childCount; a++)
+            {
+                Destroy(_editObject.GetChild(1).GetChild(i).GetChild(0).GetChild(0).GetChild(a).gameObject);
+            }
+        }
+    }
+
+    public void QuitFromEditor()
+    {
+        SceneManager.LoadScene(0);
     }
 }
 

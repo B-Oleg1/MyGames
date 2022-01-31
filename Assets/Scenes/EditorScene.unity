@@ -473,7 +473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -3450}
+  m_AnchoredPosition: {x: 0, y: -3450}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &28708777
@@ -676,14 +676,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 101
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -809,14 +809,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 94
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1153,14 +1153,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 52
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1517,14 +1517,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 63
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1566,6 +1566,222 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71051533}
+  m_CullTransparentMesh: 1
+--- !u!1 &76468971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76468972}
+  - component: {fileID: 76468975}
+  - component: {fileID: 76468974}
+  - component: {fileID: 76468973}
+  m_Layer: 5
+  m_Name: BackButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &76468972
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76468971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1776641878}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 53.01, y: 53.009}
+  m_Pivot: {x: -0.00000005401671, y: 0.9999999}
+--- !u!114 &76468973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76468971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 76468974}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8950547}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: DeleteAllObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1882763919}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 452388933}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 947038155}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1976331659}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 779585558}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 1ed629a715981de42b5e57e337ce8e5e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1686425036}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 1ed629a715981de42b5e57e337ce8e5e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &76468974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76468971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 70f10a0002a0c00488701a992f18e3e1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &76468975
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76468971}
   m_CullTransparentMesh: 1
 --- !u!1 &79139250
 GameObject:
@@ -1650,14 +1866,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 61
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1783,14 +1999,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 51
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1869,7 +2085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -230}
+  m_AnchoredPosition: {x: 0, y: -230}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &82823289
@@ -2217,7 +2433,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 8
 --- !u!222 &111305347
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2309,14 +2525,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 65
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2574,14 +2790,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 95
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2707,14 +2923,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 93
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2840,14 +3056,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 23
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2960,7 +3176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 13
 --- !u!222 &137478886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3005,7 +3221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -1380}
+  m_AnchoredPosition: {x: 0, y: -1380}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &137862364
@@ -3340,14 +3556,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 54
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3733,7 +3949,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 5
 --- !u!222 &188250959
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3778,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -460}
+  m_AnchoredPosition: {x: 0, y: -460}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &201419663
@@ -4145,7 +4361,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 209612091}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4265,7 +4493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 12
 --- !u!222 &210616389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4357,14 +4585,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 43
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4569,14 +4797,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 38
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4784,14 +5012,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 47
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4917,14 +5145,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5050,14 +5278,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5452,7 +5680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -1150}
+  m_AnchoredPosition: {x: 0, y: -1150}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &273960591
@@ -6248,14 +6476,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 56
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6592,14 +6820,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 110
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6962,14 +7190,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 39
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7095,14 +7323,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 21
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7303,14 +7531,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 84
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7446,7 +7674,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 334164186}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7766,7 +8006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &341465995
@@ -8084,14 +8324,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8204,7 +8444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 6
 --- !u!222 &374380127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8407,7 +8647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -920}
+  m_AnchoredPosition: {x: 0, y: -920}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &388879069
@@ -9211,14 +9451,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 87
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9839,7 +10079,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 467807500}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10429,14 +10681,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 68
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10562,14 +10814,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 19
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10695,14 +10947,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 81
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10936,7 +11188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -2530}
+  m_AnchoredPosition: {x: 0, y: -2530}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &537449569
@@ -11070,7 +11322,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 550078265}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11825,14 +12089,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 24
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11968,7 +12232,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 578315987}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12180,14 +12456,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 75
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12425,7 +12701,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 604218824}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12909,14 +13197,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 59
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13029,7 +13317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 16
 --- !u!222 &627231526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13237,14 +13525,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 79
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13392,7 +13680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -2760}
+  m_AnchoredPosition: {x: 0, y: -2760}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &663986792
@@ -14130,7 +14418,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 690228612}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14335,6 +14635,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693094579}
   m_CullTransparentMesh: 1
+--- !u!1 &694913318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694913319}
+  - component: {fileID: 694913322}
+  - component: {fileID: 694913321}
+  - component: {fileID: 694913320}
+  m_Layer: 5
+  m_Name: BackButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &694913319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694913318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
+  m_Children: []
+  m_Father: {fileID: 949855777}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -19}
+  m_SizeDelta: {x: 87.44, y: 87.44}
+  m_Pivot: {x: 0.00000008195639, y: 0.9999999}
+--- !u!114 &694913320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694913318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 694913321}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: QuitFromEditor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &694913321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694913318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 70f10a0002a0c00488701a992f18e3e1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.25
+--- !u!222 &694913322
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694913318}
+  m_CullTransparentMesh: 1
 --- !u!1 &700805873
 GameObject:
   m_ObjectHideFlags: 0
@@ -14418,14 +14850,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 78
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14561,7 +14993,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 703568023}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14773,14 +15217,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 48
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15414,14 +15858,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 71
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15658,7 +16102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -690}
+  m_AnchoredPosition: {x: 0, y: -690}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &756347696
@@ -15940,14 +16384,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 27
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16073,14 +16517,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 77
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16410,9 +16854,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16764,7 +17208,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 799696246}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16897,14 +17353,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 34
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17030,14 +17486,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 103
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17353,7 +17809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -2300}
+  m_AnchoredPosition: {x: 0, y: -2300}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &818398348
@@ -17464,7 +17920,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 2
 --- !u!222 &822568536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17556,14 +18012,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 83
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17689,14 +18145,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17822,14 +18278,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18034,14 +18490,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 82
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18167,14 +18623,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18300,14 +18756,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18565,14 +19021,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 91
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18777,14 +19233,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 41
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18989,14 +19445,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 98
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19828,14 +20284,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19961,14 +20417,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 37
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20173,14 +20629,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 89
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20461,14 +20917,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 33
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20594,14 +21050,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 40
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20882,14 +21338,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 35
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -21209,6 +21665,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1717910770}
+  - {fileID: 694913319}
   - {fileID: 2009043944}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -21525,7 +21982,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 1
 --- !u!222 &974637415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21920,14 +22377,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 53
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -22053,14 +22510,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 106
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -22265,14 +22722,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 57
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -22566,7 +23023,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1020253035}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22989,14 +23458,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 70
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23391,14 +23860,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 32
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23524,14 +23993,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 55
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23963,14 +24432,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 46
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -24096,14 +24565,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -24428,7 +24897,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 7
 --- !u!222 &1105932698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24520,14 +24989,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 86
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -24569,6 +25038,101 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136576050}
+  m_CullTransparentMesh: 1
+--- !u!1 &1138325786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1138325787}
+  - component: {fileID: 1138325790}
+  - component: {fileID: 1138325789}
+  - component: {fileID: 1138325788}
+  m_Layer: 5
+  m_Name: SavingImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1138325787
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138325786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1591989729}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 225, y: -80.06}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1138325788
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138325786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff7545d5b4252d444af20eb7b93108d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1138325789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138325786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d0c064f84916ed14cb1070e498c8064a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1138325790
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138325786}
   m_CullTransparentMesh: 1
 --- !u!1 &1138501679
 GameObject:
@@ -24640,7 +25204,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 10
 --- !u!222 &1138501682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25123,14 +25687,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 26
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -25493,14 +26057,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 97
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26011,14 +26575,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 99
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26154,7 +26718,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1239057715}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -26448,14 +27024,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 111
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -27109,14 +27685,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 73
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -27432,7 +28008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -1610}
+  m_AnchoredPosition: {x: 0, y: -1610}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &1304304810
@@ -27622,7 +28198,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 9
 --- !u!222 &1312757377
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27714,14 +28290,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 18
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -27916,14 +28492,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 42
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -28115,7 +28691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 4
 --- !u!222 &1327273729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28436,14 +29012,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 25
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29272,14 +29848,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 109
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29405,14 +29981,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 108
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29813,14 +30389,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 36
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -30142,14 +30718,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 22
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -30390,14 +30966,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 104
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -30476,7 +31052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -2070}
+  m_AnchoredPosition: {x: 0, y: -2070}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &1436769597
@@ -30666,7 +31242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 3
 --- !u!222 &1461552889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30906,14 +31482,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 107
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -31197,14 +31773,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 74
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -32428,14 +33004,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 92
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -32640,7 +33216,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1555762374}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -32726,7 +33314,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 0}
+  m_SizeDelta: {x: 312.69, y: 0}
   m_Pivot: {x: 0.9999999, y: 1}
 --- !u!114 &1559461512
 MonoBehaviour:
@@ -32934,14 +33522,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 45
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33156,7 +33744,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1568568262}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -33289,14 +33889,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 31
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33422,14 +34022,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 66
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33871,6 +34471,7 @@ RectTransform:
   - {fileID: 232205485}
   - {fileID: 1096150393}
   - {fileID: 120550218}
+  - {fileID: 1138325787}
   m_Father: {fileID: 2009043944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34000,14 +34601,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 69
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -34247,14 +34848,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 64
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -34682,14 +35283,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 102
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -34802,7 +35403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 14
 --- !u!222 &1623425741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34973,14 +35574,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 105
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -35377,14 +35978,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 30
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -35589,14 +36190,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 44
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -35801,14 +36402,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 29
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -36766,14 +37367,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -37358,7 +37959,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1731351948}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -37810,7 +38423,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1774810790}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -37894,6 +38519,7 @@ RectTransform:
   - {fileID: 1924145532}
   - {fileID: 505646380}
   - {fileID: 674328272}
+  - {fileID: 76468972}
   m_Father: {fileID: 8950548}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38448,14 +39074,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -38581,14 +39207,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 67
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -38793,14 +39419,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 60
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -39006,14 +39632,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 96
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -39126,7 +39752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 11
 --- !u!222 &1822472368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39307,7 +39933,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnEditInputText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1834266782}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -39741,7 +40379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Category 15
 --- !u!222 &1839333242
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39833,14 +40471,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 58
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -40361,7 +40999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -1840}
+  m_AnchoredPosition: {x: 0, y: -1840}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &1879220335
@@ -40568,14 +41206,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 49
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -41818,14 +42456,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 62
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -42030,14 +42668,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 72
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -42163,14 +42801,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 90
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -42576,14 +43214,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 88
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -42810,7 +43448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -2990}
+  m_AnchoredPosition: {x: 0, y: -2990}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &1994638564
@@ -42970,14 +43608,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 85
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -43103,14 +43741,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -43185,7 +43823,7 @@ RectTransform:
   - {fileID: 1591989729}
   - {fileID: 8950548}
   m_Father: {fileID: 949855777}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -43392,14 +44030,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 28
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -43934,14 +44572,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 76
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -44326,7 +44964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -3220}
+  m_AnchoredPosition: {x: 0, y: -3220}
   m_SizeDelta: {x: 1920.0001, y: 175}
   m_Pivot: {x: 0.000000026542693, y: 1}
 --- !u!114 &2087589614
@@ -44594,14 +45232,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 80
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -44727,9 +45365,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
-        m_MethodName: OnClickBsn
+      - m_Target: {fileID: 2116516050}
+        m_TargetAssemblyTypeName: EditorScript, Assembly-CSharp
+        m_MethodName: OnClickEditButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44809,6 +45447,7 @@ MonoBehaviour:
   _allSavedGamesObject: {fileID: 1717910770}
   _allCategoryObject: {fileID: 1591989729}
   _editObject: {fileID: 8950548}
+  _savingImage: {fileID: 1138325786}
   _renderTexture: {fileID: 8400000, guid: 6c6e723bc1e3d4a4cadda881b6bbd63e, type: 2}
   _controlMediaSprites:
   - {fileID: 21300000, guid: 1ed629a715981de42b5e57e337ce8e5e, type: 3}
